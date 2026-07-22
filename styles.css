@@ -1,12 +1,14 @@
-/* Variables con paleta de color 360 Digital */
+/* ==========================================================================
+   1. VARIABLES DE ESTILO Y RESET (Estilo Cuadrofilia / E-commerce Dark)
+   ========================================================================== */
 :root {
-  --bg-color: #0b0f19;
-  --card-bg: rgba(23, 31, 48, 0.7);
-  --border-color: rgba(255, 255, 255, 0.08);
-  --accent-cyan: #00f2fe;
-  --accent-purple: #4facfe;
-  --text-main: #f3f4f6;
-  --text-muted: #9ca3af;
+  --bg-dark: #0a0a0a;
+  --card-bg: #121212;
+  --card-border: #242424;
+  --yellow-accent: #ffcc00;
+  --yellow-hover: #e6b800;
+  --text-main: #ffffff;
+  --text-muted: #a1a1aa;
   --font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
@@ -18,122 +20,306 @@
 }
 
 body {
-  background-color: var(--bg-color);
+  background-color: var(--bg-dark);
   color: var(--text-main);
-  padding: 2rem 1rem;
   min-height: 100vh;
+  line-height: 1.5;
 }
 
-/* Header */
-.navbar {
+/* ==========================================================================
+   2. BANNER SUPERIOR PROMOCIONAL
+   ========================================================================== */
+.promo-bar {
+  background-color: var(--yellow-accent);
+  color: #000;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 8px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
   text-align: center;
-  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
 }
 
+.promo-bar i {
+  margin-right: 5px;
+}
+
+/* ==========================================================================
+   3. HEADER Y BUSCADOR PRINCIPAL
+   ========================================================================== */
+.main-header {
+  background-color: #000000;
+  border-bottom: 1px solid var(--card-border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+/* Logo */
 .logo {
-  font-size: 2.2rem;
+  text-decoration: none;
+}
+
+.logo h2 {
+  color: #fff;
+  font-size: 1.5rem;
   font-weight: 800;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
 }
 
 .logo span {
-  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--yellow-accent);
 }
 
-.tagline {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  margin-top: 5px;
-}
-
-/* Sección de Filtros */
-.filters-container {
-  max-width: 1200px;
-  margin: 0 auto 3rem auto;
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  backdrop-filter: blur(12px);
-  padding: 1.5rem;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.filters-container h2 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.filter-group {
+/* Buscador Central */
+.search-box {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 25px;
+  padding: 8px 18px;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  flex-grow: 1;
+  max-width: 480px;
+  transition: border-color 0.2s;
+}
+
+.search-box:focus-within {
+  border-color: var(--yellow-accent);
+}
+
+.search-box i {
+  color: var(--text-muted);
+  margin-right: 10px;
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.header-icons {
+  display: flex;
+  gap: 18px;
+}
+
+.header-icons a {
+  color: #fff;
+  font-size: 1.2rem;
+  transition: color 0.2s;
+}
+
+.header-icons a:hover {
+  color: var(--yellow-accent);
+}
+
+/* ==========================================================================
+   4. NAVEGACIÓN Y DROPDOWNS
+   ========================================================================== */
+.main-nav {
+  border-top: 1px solid #1a1a1a;
+  background-color: #050505;
+}
+
+.main-nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav li {
+  position: relative; /* Clave para que el submenú se posicione justo debajo */
+}
+
+.nav-link {
+  color: #d4d4d8;
+  text-decoration: none;
+  padding: 12px 22px;
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--yellow-accent);
+}
+
+.sale-tag {
+  color: var(--yellow-accent);
+}
+
+/* Menú Desplegable */
+.dropdown-menu {
+  display: none !important; /* Forzamos que esté oculto */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #121212;
+  border: 1px solid #27272a;
+  border-radius: 8px;
+  min-width: 200px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  padding: 8px 0;
+  list-style: none;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: flex !important;
+  flex-direction: column;
+}
+
+.dropdown-menu a {
+  color: #e4e4e7;
+  padding: 10px 18px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-menu a:hover {
+  background: #242424;
+  color: var(--yellow-accent);
+}
+.dropdown-menu li {
+  width: 100%;
+}
+
+.dropdown-menu a, 
+.dropdown-menu .btn-filter, 
+.dropdown-menu .btn-tag {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  color: #e4e4e7 !important;
+  padding: 10px 18px !important;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-menu a:hover, 
+.dropdown-menu .btn-filter:hover, 
+.dropdown-menu .btn-tag:hover {
+  background: #242424 !important;
+  color: var(--yellow-accent) !important;
+}
+
+/* ==========================================================================
+   5. FILTROS RÁPIDOS (PILLS)
+   ========================================================================== */
+.filters-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 20px;
+}
+
+.quick-filters {
+  display: flex;
+  align-items: center;
+  gap: 15px;
   flex-wrap: wrap;
 }
 
 .filter-label {
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-muted);
-  min-width: 80px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-/* Botones */
+.pills-wrapper {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
 .btn-filter, .btn-tag {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-color);
-  color: var(--text-main);
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
+  background: #18181b;
+  border: 1px solid #27272a;
+  color: #e4e4e7;
+  padding: 6px 16px;
+  border-radius: 20px;
   cursor: pointer;
   font-size: 0.85rem;
-  transition: all 0.3s ease;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 
 .btn-filter:hover, .btn-tag:hover {
-  border-color: var(--accent-cyan);
+  border-color: var(--yellow-accent);
+  color: var(--yellow-accent);
 }
 
 .btn-filter.active, .btn-tag.active {
-  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  background: var(--yellow-accent);
   color: #000;
+  border-color: var(--yellow-accent);
   font-weight: 700;
-  border: none;
 }
 
-/* Grilla del Catálogo */
-.catalog-grid {
+/* ==========================================================================
+   6. GRILLA DE PRODUCTOS Y TARJETAS E-COMMERCE
+   ========================================================================== */
+.catalog-container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto 4rem auto;
+  padding: 0 20px;
+}
+
+.catalog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 2rem;
 }
 
-/* Tarjeta del Cuadro */
 .card {
   background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 20px;
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
   overflow: hidden;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(0, 242, 254, 0.4);
+  transform: translateY(-5px);
+  border-color: var(--yellow-accent);
+  box-shadow: 0 10px 20px rgba(255, 204, 0, 0.08);
 }
 
 .card-img {
   position: relative;
   width: 100%;
-  height: 230px;
+  height: 250px;
+  background: #000;
   overflow: hidden;
 }
 
@@ -141,15 +327,20 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card-img img {
+  transform: scale(1.05);
 }
 
 .badge-piezas {
   position: absolute;
   top: 12px;
   right: 12px;
-  background: rgba(11, 15, 25, 0.85);
-  border: 1px solid var(--border-color);
-  color: var(--accent-cyan);
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid var(--yellow-accent);
+  color: var(--yellow-accent);
   padding: 4px 10px;
   font-size: 0.75rem;
   font-weight: 700;
@@ -158,66 +349,68 @@ body {
 }
 
 .card-body {
-  padding: 1.5rem;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
 .card-title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+  color: #fff;
 }
 
 .card-tags {
   display: flex;
   gap: 6px;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
   flex-wrap: wrap;
 }
 
 .tag-mini {
   font-size: 0.7rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: #1f1f23;
   color: var(--text-muted);
-  padding: 2px 8px;
+  padding: 3px 8px;
   border-radius: 4px;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
-/* Selector y Precios */
 .size-selector {
   margin-bottom: 1rem;
 }
 
 .size-selector label {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
   margin-bottom: 4px;
 }
 
 .size-select {
   width: 100%;
-  background: #0b0f19;
-  border: 1px solid var(--border-color);
-  color: var(--text-main);
-  padding: 0.6rem;
+  background: #18181b;
+  border: 1px solid #27272a;
+  color: #fff;
+  padding: 0.55rem;
   border-radius: 8px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   outline: none;
+  cursor: pointer;
 }
 
 .size-select:focus {
-  border-color: var(--accent-cyan);
+  border-color: var(--yellow-accent);
 }
 
 .card-specs {
   font-size: 0.8rem;
   color: var(--text-muted);
   margin-bottom: 1.2rem;
-  min-height: 2.4em;
+  min-height: 2.2em;
 }
 
 .card-footer {
@@ -225,7 +418,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--card-border);
   padding-top: 1rem;
 }
 
@@ -235,18 +428,19 @@ body {
 }
 
 .price-label {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   color: var(--text-muted);
+  text-transform: uppercase;
 }
 
 .price-value {
   font-size: 1.3rem;
   font-weight: 800;
-  color: var(--accent-cyan);
+  color: var(--yellow-accent);
 }
 
 .btn-buy {
-  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  background: var(--yellow-accent);
   color: #000;
   font-weight: 700;
   border: none;
@@ -254,4 +448,120 @@ body {
   border-radius: 8px;
   cursor: pointer;
   font-size: 0.85rem;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-buy:hover {
+  background: var(--yellow-hover);
+  transform: scale(1.03);
+}
+
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .search-box {
+    width: 100%;
+    max-width: 100%;
+  }
+  .promo-bar {
+    gap: 10px;
+    font-size: 0.75rem;
+  }
+}
+
+/* ==========================================================================
+   ESPECIFICACIONES Y ACORDEONES (ESTILO CUADROFILIA)
+   ========================================================================== */
+
+/* Puntos clave / Highlights */
+.product-highlights {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  background: #18181b;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #27272a;
+}
+
+.product-highlights span {
+  font-size: 0.72rem;
+  color: var(--yellow-accent);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Selectores de acabado y medida */
+.option-selector, .size-selector {
+  margin-bottom: 10px;
+}
+
+.option-selector label, .size-selector label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.finish-select, .size-select {
+  width: 100%;
+  background: #18181b;
+  border: 1px solid #27272a;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.finish-select:focus, .size-select:focus {
+  border-color: var(--yellow-accent);
+}
+
+/* Acordeones desplegables para Especificaciones */
+.specs-accordion {
+  background: #151518;
+  border: 1px solid #27272a;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.specs-accordion summary {
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #e4e4e7;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.specs-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.specs-accordion summary:hover {
+  background: #242424;
+  color: var(--yellow-accent);
+}
+
+.specs-accordion p {
+  padding: 8px 12px 12px 12px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  border-top: 1px solid #27272a;
 }

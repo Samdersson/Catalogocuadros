@@ -6,42 +6,95 @@
   <title>Catálogo de Cuadros - 360 Digital</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Íconos FontAwesome para el buscador y menús -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- Header / Navbar -->
-  <header class="navbar">
-    <div class="logo">360<span>Digital</span></div>
-    <p class="tagline">Catálogo de Cuadros Decorativos</p>
-  </header>
+  <!-- 1. Barra Promocional Superior Estilo Cuadrofilia -->
+  <div class="promo-bar" style="background-color: #ff0000; color: #ffffff; text-align: center; padding: 5px 0;">
+    <span><i class="fas fa-check-circle"></i> 360 Digital</span>
+    <span><i class="fas fa-credit-card"></i> Publicidad - Marketing & Desarrolo Digital</span>
+    <span><i class="fas fa-truck"></i> ¡Compra y Paga al Recibir!</span>
+  </div>
 
-  <!-- Filtros Principales -->
-  <section class="filters-container">
-    <h2>Explora nuestro catálogo</h2>
-    
-    <!-- Filtro por Piezas -->
-    <div class="filter-group">
-      <span class="filter-label">Piezas:</span>
-      <button class="btn-filter active" data-filter="piezas" data-value="todas">Todas</button>
-      <button class="btn-filter" data-filter="piezas" data-value="1">1 Pieza</button>
-      <button class="btn-filter" data-filter="piezas" data-value="3">3 Piezas</button>
-      <button class="btn-filter" data-filter="piezas" data-value="5">5 Piezas</button>
+  <!-- 2. Header / Navbar Principal -->
+  <header class="main-header">
+    <div class="header-container">
+      
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <h2>360<span>Digital</span></h2>
+      </a>
+
+      <!-- Buscador Central -->
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="¿Qué temática buscas? (ej. Billetes, Paisajes...)">
+      </div>
+
+      <!-- Íconos de Usuario / Carrito -->
+      <div class="header-icons">
+        <a href="https://360-digital.vercel.app/" ></i>
+        <img src="Iconos/web site.png" alt="Logo de 360 Digital"  style="height: 50PX;">
+        </a>
+      </div>
+
     </div>
 
-    <!-- Filtro por Etiquetas -->
-    <div class="filter-group">
-      <span class="filter-label">Categoría:</span>
-      <button class="btn-tag active" data-filter="etiqueta" data-value="todas">Todas</button>
-      <button class="btn-tag" data-filter="etiqueta" data-value="sala">Sala</button>
-      <button class="btn-tag" data-filter="etiqueta" data-value="paisajes">Paisajes</button>
-      <button class="btn-tag" data-filter="etiqueta" data-value="eroticos">Eróticos</button>
-      <button class="btn-tag" data-filter="etiqueta" data-value="abstracto">Abstracto</button>
+    
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#" class="nav-link active" data-filter="etiqueta" data-value="todas">Inicio</a></li>
+        
+    
+        <li class="dropdown">
+          <a href="#" class="nav-link">Catálogo <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="#" class="btn-filter" data-filter="piezas" data-value="todas">Ver Todos</a></li>
+            <li><a href="#" class="btn-filter" data-filter="piezas" data-value="1">1 Pieza</a></li>
+            <li><a href="#" class="btn-filter" data-filter="piezas" data-value="3">Trípticos (3 Piezas)</a></li>
+            <li><a href="#" class="btn-filter" data-filter="piezas" data-value="5">5 Piezas</a></li>
+          </ul>
+        </li>
+
+    
+        <li class="dropdown">
+          <a href="#" class="nav-link">Categorías <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="#" class="btn-tag" data-filter="etiqueta" data-value="billetes">Billetes / Dinero</a></li>
+            <li><a href="#" class="btn-tag" data-filter="etiqueta" data-value="sala">Sala</a></li>
+            <li><a href="#" class="btn-tag" data-filter="etiqueta" data-value="paisajes">Paisajes</a></li>
+            <li><a href="#" class="btn-tag" data-filter="etiqueta" data-value="eroticos">Eróticos</a></li>
+            <li><a href="#" class="btn-tag" data-filter="etiqueta" data-value="abstracto">Abstracto</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#" class="nav-link sale-tag">Nuevos Diseños</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 4. Filtros de Botones Rápidos (Pills) -->
+  <section class="filters-container">
+    <div class="quick-filters">
+      <span class="filter-label">Explorar por etiqueta:</span>
+      <div class="pills-wrapper">
+        <button class="btn-tag active" data-filter="etiqueta" data-value="todas">Todas</button>
+        <button class="btn-tag" data-filter="etiqueta" data-value="billetes">Billetes</button>
+        <button class="btn-tag" data-filter="etiqueta" data-value="sala">Sala</button>
+        <button class="btn-tag" data-filter="etiqueta" data-value="paisajes">Paisajes</button>
+        <button class="btn-tag" data-filter="etiqueta" data-value="eroticos">Eróticos</button>
+        <button class="btn-tag" data-filter="etiqueta" data-value="abstracto">Abstracto</button>
+      </div>
     </div>
   </section>
 
-  <!-- Grilla de Productos -->
-  <main class="catalog-grid" id="catalog-grid">
-    <!-- Aquí se cargan dinámicamente los cuadros con JS -->
+  <!-- 5. Grilla de Productos Dinámica -->
+  <main class="catalog-container">
+    <div class="catalog-grid" id="catalog-grid">
+    
+    </div>
   </main>
 
   <script src="app.js"></script>
