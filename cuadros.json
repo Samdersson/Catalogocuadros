@@ -1,4 +1,4 @@
-[
+{"cuadros":[
   {
     "id": "c1",
     "titulo": "Universo Cósmico",
@@ -52,3 +52,4 @@
     ]
   }
 ]
+}

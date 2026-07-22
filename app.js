@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("cuadros.json")
     .then(res => res.json())
     .then(data => {
-      cuadrosData = data;
+      cuadrosData = data.cuadros || data;
       renderizarCatalogo();
       setupEventListeners();
     })
