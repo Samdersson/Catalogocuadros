@@ -1,0 +1,257 @@
+/* Variables con paleta de color 360 Digital */
+:root {
+  --bg-color: #0b0f19;
+  --card-bg: rgba(23, 31, 48, 0.7);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --accent-cyan: #00f2fe;
+  --accent-purple: #4facfe;
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  padding: 2rem 1rem;
+  min-height: 100vh;
+}
+
+/* Header */
+.navbar {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.logo {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tagline {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-top: 5px;
+}
+
+/* Sección de Filtros */
+.filters-container {
+  max-width: 1200px;
+  margin: 0 auto 3rem auto;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(12px);
+  padding: 1.5rem;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.filters-container h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  min-width: 80px;
+}
+
+/* Botones */
+.btn-filter, .btn-tag {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.btn-filter:hover, .btn-tag:hover {
+  border-color: var(--accent-cyan);
+}
+
+.btn-filter.active, .btn-tag.active {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  color: #000;
+  font-weight: 700;
+  border: none;
+}
+
+/* Grilla del Catálogo */
+.catalog-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+/* Tarjeta del Cuadro */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 242, 254, 0.4);
+}
+
+.card-img {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.badge-piezas {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(11, 15, 25, 0.85);
+  border: 1px solid var(--border-color);
+  color: var(--accent-cyan);
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.card-tags {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.tag-mini {
+  font-size: 0.7rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+/* Selector y Precios */
+.size-selector {
+  margin-bottom: 1rem;
+}
+
+.size-selector label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.size-select {
+  width: 100%;
+  background: #0b0f19;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 0.6rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.size-select:focus {
+  border-color: var(--accent-cyan);
+}
+
+.card-specs {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
+  min-height: 2.4em;
+}
+
+.card-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+
+.price-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.price-value {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--accent-cyan);
+}
+
+.btn-buy {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  color: #000;
+  font-weight: 700;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}

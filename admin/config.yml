@@ -1,0 +1,37 @@
+backend:
+  name: git-gateway
+  branch: main # o master (según cómo se llame tu rama principal en GitHub)
+
+media_folder: "imagenes" # Carpeta donde se guardarán las fotos subidas
+public_folder: "imagenes"
+
+collections:
+  - name: "cuadros"
+    label: "Catálogo de Cuadros"
+    files:
+      - file: "cuadros.json"
+        label: "Lista de Cuadros"
+        name: "cuadros_data"
+        fields:
+          - label: "Cuadros"
+            name: "cuadros"
+            widget: "list"
+            fields:
+              - { label: "ID Único", name: "id", widget: "string" }
+              - { label: "Título del Cuadro", name: "titulo", widget: "string" }
+              - { label: "Número de Piezas", name: "piezas", widget: "number", value_type: "int" }
+              - { label: "Imagen Principal", name: "imagen", widget: "image" }
+              
+              # Etiquetas dinámicas (puedes agregar las que quieras desde el panel)
+              - label: "Etiquetas / Categorías"
+                name: "etiquetas"
+                widget: "list"
+                
+              # Sub-lista de Medidas y Precios
+              - label: "Medidas y Precios"
+                name: "medidas"
+                widget: "list"
+                fields:
+                  - { label: "Tamaño (ej: 80 x 50 cm)", name: "tamano", widget: "string" }
+                  - { label: "Precio ($)", name: "precio", widget: "number", value_type: "int" }
+                  - { label: "Especificaciones", name: "especificaciones", widget: "string" }

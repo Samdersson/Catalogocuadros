@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Cuadros - 360 Digital</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header class="navbar">
+    <div class="logo">360<span>Digital</span></div>
+    <p class="tagline">Catálogo de Cuadros Decorativos</p>
+  </header>
+
+  <!-- Filtros Principales -->
+  <section class="filters-container">
+    <h2>Explora nuestro catálogo</h2>
+    
+    <!-- Filtro por Piezas -->
+    <div class="filter-group">
+      <span class="filter-label">Piezas:</span>
+      <button class="btn-filter active" data-filter="piezas" data-value="todas">Todas</button>
+      <button class="btn-filter" data-filter="piezas" data-value="1">1 Pieza</button>
+      <button class="btn-filter" data-filter="piezas" data-value="3">3 Piezas</button>
+      <button class="btn-filter" data-filter="piezas" data-value="5">5 Piezas</button>
+    </div>
+
+    <!-- Filtro por Etiquetas -->
+    <div class="filter-group">
+      <span class="filter-label">Categoría:</span>
+      <button class="btn-tag active" data-filter="etiqueta" data-value="todas">Todas</button>
+      <button class="btn-tag" data-filter="etiqueta" data-value="sala">Sala</button>
+      <button class="btn-tag" data-filter="etiqueta" data-value="paisajes">Paisajes</button>
+      <button class="btn-tag" data-filter="etiqueta" data-value="eroticos">Eróticos</button>
+      <button class="btn-tag" data-filter="etiqueta" data-value="abstracto">Abstracto</button>
+    </div>
+  </section>
+
+  <!-- Grilla de Productos -->
+  <main class="catalog-grid" id="catalog-grid">
+    <!-- Aquí se cargan dinámicamente los cuadros con JS -->
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

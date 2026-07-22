@@ -1,0 +1,54 @@
+[
+  {
+    "id": "c1",
+    "titulo": "Universo Cósmico",
+    "piezas": 3,
+    "etiquetas": ["sala", "abstracto", "moderno"],
+    "imagen": "https://picsum.photos/seed/cosmo/600/400",
+    "medidas": [
+      {
+        "tamano": "80 x 50 cm",
+        "precio": 120000,
+        "especificaciones": "3 piezas de 26 x 50 cm c/u en retablo MDF 9mm"
+      },
+      {
+        "tamano": "120 x 80 cm",
+        "precio": 180000,
+        "especificaciones": "3 piezas de 40 x 80 cm c/u en retablo MDF 9mm"
+      }
+    ]
+  },
+  {
+    "id": "c2",
+    "titulo": "Bosque de Niebla",
+    "piezas": 1,
+    "etiquetas": ["paisajes", "naturaleza", "sala"],
+    "imagen": "https://picsum.photos/seed/forest/600/400",
+    "medidas": [
+      {
+        "tamano": "60 x 40 cm",
+        "precio": 75000,
+        "especificaciones": "1 lienzo bastidor de madera de pino"
+      },
+      {
+        "tamano": "90 x 60 cm",
+        "precio": 110000,
+        "especificaciones": "1 lienzo bastidor de madera de pino"
+      }
+    ]
+  },
+  {
+    "id": "c3",
+    "titulo": "Sensualidad Línea",
+    "piezas": 5,
+    "etiquetas": ["eroticos", "habitacion", "minimalista"],
+    "imagen": "https://picsum.photos/seed/art/600/400",
+    "medidas": [
+      {
+        "tamano": "150 x 80 cm",
+        "precio": 240000,
+        "especificaciones": "5 piezas políptico en corte escalonado"
+      }
+    ]
+  }
+]
