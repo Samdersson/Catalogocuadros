@@ -1,7 +1,7 @@
 backend:
   name: github
-  repo: Samdersson/Catalogocuadros # <-- Tu repo exacto de GitHub
-  branch: main                    # O 'master' según el nombre de tu rama
+  repo: Samdersson/Catalogocuadros
+  branch: main
   site_domain: catalogo-cuadros.netlify.app
 
 media_folder: "imagenes"
@@ -23,9 +23,14 @@ collections:
               - { label: "Título del Cuadro", name: "titulo", widget: "string" }
               - { label: "Número de Piezas", name: "piezas", widget: "number", value_type: "int" }
               - { label: "Imagen Principal", name: "imagen", widget: "image" }
+              
+              
               - label: "Etiquetas / Categorías"
                 name: "etiquetas"
                 widget: "list"
+                field: { label: "Etiqueta", name: "tag", widget: "string" }
+                
+              # Medidas y Precios
               - label: "Medidas y Precios"
                 name: "medidas"
                 widget: "list"
