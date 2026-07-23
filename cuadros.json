@@ -35,6 +35,15 @@
           "especificaciones": "com puesto por tres cuadros de 47x80 cm"
         }
       ]
+    },
+    {
+      "imagen": "imagenes/unete-a-nuestro-equipo.png",
+      "id": "0001",
+      "titulo": "vacante",
+      "piezas": 1,
+      "etiquetas": [
+        "paisaje"
+      ]
     }
   ]
 }
