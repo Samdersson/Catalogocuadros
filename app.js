@@ -71,13 +71,14 @@ function renderizarCatalogo() {
           </div>
 
           <!-- Selector de Acabado -->
-          <!-- <div class="option-selector">
+          
+          <div class="option-selector">
             <label>Elige el acabado:</label>
             <select class="finish-select" id="finish-${cuadro.id}">
-              <option value="Mate Estándar">Acabado Mate Estándar</option>
-              <option value="Mate con Textura en Relieve">Mate + Textura con Relieve (+ Textos)</option>
+              <option value="sin iluminacion">S in Iluminación</option>
+              <option value="con iluminacion">Con Iluminacion Neon Flex </option>
             </select>
-          </div> -->
+          </div>
 
           <!-- Selector de Medidas -->
           <div class="size-selector">
