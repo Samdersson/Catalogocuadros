@@ -41,6 +41,12 @@
       "etiquetas": [
         "tio rico neon dolar "
       ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 5,
+      "imagen": "imagenes/2.jpg",
+      "medidas": []
     }
   ]
 }
