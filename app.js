@@ -3,7 +3,34 @@ let filtroPiezasActual = "todas";
 let filtroEtiquetaActual = "todas";
 let busquedaTextoActual = "";
 
-// 1. Cargar datos al iniciar
+// Texto de especificaciones unificado
+const ESPECIFICACIONES_GENERALES = "Todos nuestros cuadros son realizados en impresión digital de alta resolución en vinilo acabado mate sobre MDF 9mm, cuentan con soporte metálico en la parte de atrás ¡Listos para colgar!";
+
+// 1. Catálogo Cuadros CON LUZ LED (1 pieza)
+const MEDIDAS_LED = [
+  { tamano: "30 x 70 cm", precio: 105000, especificaciones: ESPECIFICACIONES_GENERALES },
+  { tamano: "40 x 90 cm", precio: 140000, especificaciones: ESPECIFICACIONES_GENERALES },
+  { tamano: "60 x 100 cm", precio: 190000, especificaciones: ESPECIFICACIONES_GENERALES },
+  { tamano: "70 x 120 cm", precio: 240000, especificaciones: ESPECIFICACIONES_GENERALES }
+];
+
+// 2. Catálogo Cuadros COMPLETOS SIN LUZ (1 pieza)
+const MEDIDAS_COMPLETOS = [
+  { tamano: "40 x 90 cm", precio: 115000, especificaciones: ESPECIFICACIONES_GENERALES },
+  { tamano: "50 x 100 cm", precio: 120000, especificaciones: ESPECIFICACIONES_GENERALES },
+  { tamano: "60 x 100 cm", precio: 140000, especificaciones: ESPECIFICACIONES_GENERALES },
+  { tamano: "70 x 120 cm", precio: 180000, especificaciones: ESPECIFICACIONES_GENERALES },
+  { tamano: "140 x 80 cm", precio: 220000, especificaciones: ESPECIFICACIONES_GENERALES }
+];
+
+// 3. Catálogo TRÍPTICOS / POLÍPTICOS (3 o 5 piezas)
+const MEDIDAS_TRIPTICOS = [
+  { tamano: "80 x 50 cm total", precio: 120000, especificaciones: ESPECIFICACIONES_GENERALES },
+  { tamano: "120 x 80 cm total", precio: 180000, especificaciones: ESPECIFICACIONES_GENERALES },
+  { tamano: "150 x 90 cm total", precio: 240000, especificaciones: ESPECIFICACIONES_GENERALES }
+];
+
+// Cargar datos
 document.addEventListener("DOMContentLoaded", () => {
   fetch("cuadros.json")
     .then(res => res.json())
@@ -15,18 +42,16 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(err => console.error("Error al cargar cuadros.json:", err));
 });
 
-// 2. Renderizar tarjetas en pantalla
+// Renderizar tarjetas
 function renderizarCatalogo() {
   const container = document.getElementById("catalog-grid");
   if (!container) return;
   container.innerHTML = "";
 
-  // Filtrar productos por piezas, etiquetas y texto de búsqueda
   const filtrados = cuadrosData.filter(item => {
     const coincidePiezas = filtroPiezasActual === "todas" || item.piezas.toString() === filtroPiezasActual;
     const coincideEtiqueta = filtroEtiquetaActual === "todas" || (item.etiquetas && item.etiquetas.includes(filtroEtiquetaActual));
     
-    // Búsqueda por texto (Título o Etiquetas)
     const texto = busquedaTextoActual.toLowerCase();
     const coincideTexto = item.titulo.toLowerCase().includes(texto) || 
                           (item.etiquetas && item.etiquetas.some(tag => tag.toLowerCase().includes(texto)));
@@ -39,59 +64,64 @@ function renderizarCatalogo() {
     return;
   }
 
-  // Generar HTML de cada tarjeta
   filtrados.forEach(cuadro => {
-    const medidaInicial = cuadro.medidas[0];
-    
+    const esTriptico = cuadro.piezas > 1;
+    const esConLuz = cuadro.tipo === "con_luz" || cuadro.tieneLuz === true;
+
+    // Asignar grupo de medidas según la naturaleza del producto cargado
+    let medidasDelCuadro = [];
+    if (cuadro.medidas && cuadro.medidas.length > 0) {
+      medidasDelCuadro = cuadro.medidas;
+    } else if (esTriptico) {
+      medidasDelCuadro = MEDIDAS_TRIPTICOS;
+    } else if (esConLuz) {
+      medidasDelCuadro = MEDIDAS_LED;
+    } else {
+      medidasDelCuadro = MEDIDAS_COMPLETOS;
+    }
+
+    cuadro.medidasPobladas = medidasDelCuadro;
+    const medidaInicial = medidasDelCuadro[0];
+
     // Opciones del selector de medidas
-    const opcionesHTML = cuadro.medidas.map((m, index) => 
+    const opcionesMedidasHTML = medidasDelCuadro.map((m, index) => 
       `<option value="${index}">${m.tamano}</option>`
     ).join("");
 
-    // Tags visuales
-    const tagsHTML = cuadro.etiquetas.map(t => `<span class="tag-mini">${t}</span>`).join("");
+    // Tags
+    const tagsHTML = (cuadro.etiquetas || []).map(t => `<span class="tag-mini">${t}</span>`).join("");
+
+    // Etiqueta destacada
+    let badgeTipo = `${cuadro.piezas} ${cuadro.piezas === 1 ? 'Pieza' : 'Piezas'}`;
+    if (esConLuz) badgeTipo += ' • Iluminación LED';
 
     const cardHTML = `
       <div class="card" id="card-${cuadro.id}">
-        <!-- Imagen y Badge -->
         <div class="card-img">
           <img src="${cuadro.imagen}" alt="${cuadro.titulo}">
-          <span class="badge-piezas">${cuadro.piezas} ${cuadro.piezas === 1 ? 'Pieza' : 'Piezas'}</span>
+          <span class="badge-piezas">${badgeTipo}</span>
         </div>
 
         <div class="card-body">
           <h3 class="card-title">${cuadro.titulo}</h3>
           <div class="card-tags">${tagsHTML}</div>
 
-          <!-- Ventajas técnicas estilo Cuadrofilia -->
           <div class="product-highlights">
             <span><i class="fas fa-layer-group"></i> Retablo MDF 9mm</span>
             <span><i class="fas fa-tools"></i> Listo para colgar</span>
             <span><i class="fas fa-sparkles"></i> Impresión HD</span>
           </div>
 
-          <!-- Selector de Acabado -->
-          
-          <div class="option-selector">
-            <label>Elige el acabado:</label>
-            <select class="finish-select" id="finish-${cuadro.id}">
-              <option value="sin iluminacion">S in Iluminación</option>
-              <option value="con iluminacion">Con Iluminacion Neon Flex </option>
-            </select>
-          </div>
-
-          <!-- Selector de Medidas -->
           <div class="size-selector">
             <label>Selecciona la medida:</label>
-            <select class="size-select" onchange="cambiarMedida('${cuadro.id}', this.value)">
-              ${opcionesHTML}
+            <select class="size-select" id="size-${cuadro.id}" onchange="cambiarMedida('${cuadro.id}', this.value)">
+              ${opcionesMedidasHTML}
             </select>
           </div>
 
-          <!-- Acordeón de Especificaciones -->
-          <details class="specs-accordion">
+          <details class="specs-accordion" open>
             <summary><i class="fas fa-info-circle"></i> Ficha Técnica y Materiales</summary>
-            <p id="specs-${cuadro.id}">${medidaInicial.especificaciones}</p>
+            <p>${ESPECIFICACIONES_GENERALES}</p>
           </details>
 
           <details class="specs-accordion">
@@ -99,7 +129,6 @@ function renderizarCatalogo() {
             <p>Envíos garantizados a todo Colombia. Paga al recibir o financia con Addi / Sistecrédito.</p>
           </details>
 
-          <!-- Footer con Precio y Botón de Compra -->
           <div class="card-footer">
             <div class="price-container">
               <span class="price-label">Precio</span>
@@ -116,25 +145,25 @@ function renderizarCatalogo() {
   });
 }
 
-// 3. Función dinámica para actualizar precio y especificaciones
+// Cambiar precio según medida seleccionada
 function cambiarMedida(cuadroId, indexMedida) {
   const cuadro = cuadrosData.find(c => c.id === cuadroId);
-  const seleccion = cuadro.medidas[indexMedida];
+  if (!cuadro) return;
+
+  const medidas = cuadro.medidasPobladas || MEDIDAS_COMPLETOS;
+  const seleccion = medidas[indexMedida] || medidas[0];
 
   document.getElementById(`price-${cuadroId}`).innerText = `$${seleccion.precio.toLocaleString()}`;
-  document.getElementById(`specs-${cuadroId}`).innerText = seleccion.especificaciones;
 }
 
-// 4. Escuchar eventos de Filtros y Buscador
+// Filtros y búsqueda
 function setupEventListeners() {
-  // Clic en botones o enlaces de Filtros (Categorías y Piezas)
   document.querySelectorAll('[data-filter]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const tipo = btn.dataset.filter;
       const valor = btn.dataset.value;
 
-      // Gestionar clase active si aplica
       if (btn.classList.contains('btn-filter') || btn.classList.contains('btn-tag')) {
         const parent = btn.parentElement;
         if (parent) {
@@ -150,7 +179,6 @@ function setupEventListeners() {
     });
   });
 
-  // Evento para el buscador central en tiempo real
   const searchInput = document.getElementById("searchInput");
   if (searchInput) {
     searchInput.addEventListener("input", (e) => {
@@ -160,17 +188,17 @@ function setupEventListeners() {
   }
 }
 
-// 5. Enviar pedido estructurado por WhatsApp
+// Pedido WhatsApp
 function pedirPorWhatsapp(titulo, cuadroId) {
-  const selectMedida = document.querySelector(`#card-${cuadroId} .size-select`);
-  const medidaText = selectMedida.options[selectMedida.selectedIndex].text;
-  
-  const selectAcabado = document.getElementById(`finish-${cuadroId}`);
-  const acabadoText = selectAcabado ? selectAcabado.value : "Mate Estándar";
-  
+  const cuadro = cuadrosData.find(c => c.id === cuadroId);
+  const selectMedida = document.getElementById(`size-${cuadroId}`);
+  const medidaText = selectMedida ? selectMedida.options[selectMedida.selectedIndex].text : "";
   const precioText = document.getElementById(`price-${cuadroId}`).innerText;
 
-  const mensaje = `¡Hola *360 Digital*! 🖼️\nQuiero pedir el cuadro: *${titulo}*\n\n📐 *Medida:* ${medidaText}\n✨ *Acabado:* ${acabadoText}\n💰 *Precio:* ${precioText}\n\n¿Me indican los pasos para realizar el envío?`;
+  const esConLuz = cuadro && (cuadro.tipo === "con_luz" || cuadro.tieneLuz === true);
+  const tipoTexto = esConLuz ? "Cuadro con Luz LED Neon" : "Cuadro Completo Estándar";
+
+  const mensaje = `¡Hola *360 Digital*! 🖼️\nQuiero pedir el producto: *${titulo}*\n\n📌 *Tipo:* ${tipoTexto}\n📐 *Medida:* ${medidaText}\n💰 *Precio:* ${precioText}\n\n¿Me indican los pasos para realizar la compra?`;
 
   window.open(`https://wa.me/573187752351?text=${encodeURIComponent(mensaje)}`, '_blank');
 }
