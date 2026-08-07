@@ -119,7 +119,7 @@ function renderizarCatalogo() {
             </select>
           </div>
 
-          <details class="specs-accordion" open>
+          <details class="specs-accordion" >
             <summary><i class="fas fa-info-circle"></i> Ficha Técnica y Materiales</summary>
             <p>${ESPECIFICACIONES_GENERALES}</p>
           </details>
