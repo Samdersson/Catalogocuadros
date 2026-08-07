@@ -3,31 +3,60 @@ let filtroPiezasActual = "todas";
 let filtroEtiquetaActual = "todas";
 let busquedaTextoActual = "";
 
+// texto para cuadros neon led
+const ESPECIFICACIONES_LED = "Todos nuestros cuadros con luz LED son realizados en impresión digital de alta resolución en vinilo acabado brillante sobre MDF 9mm, cuentan con soporte metálico en la parte de atrás y sistema de iluminación LED ¡Listos para colgar! Tambien lo puedes solicitar con dilatadores para mejor apariencia en su instalacion";
+
 // Texto de especificaciones unificado
-const ESPECIFICACIONES_GENERALES = "Todos nuestros cuadros son realizados en impresión digital de alta resolución en vinilo acabado mate sobre MDF 9mm, cuentan con soporte metálico en la parte de atrás ¡Listos para colgar!";
+const ESPECIFICACIONES_GENERALES = "Todos nuestros cuadros son realizados en impresión digital de alta resolución en vinilo acabado brillante sobre MDF 9mm, cuentan con soporte metálico en la parte de atrás ¡Listos para colgar!";
+
+// texto para tripticos
+const ESPECIFICACIONES_30x60 = "Medida 30 x 60 cm: compuesto por 3 cuadros de 20x30 cm Ideal para espacios pequeños, perfecto para decorar rincones o pasillos. Incluye soporte metálico y acabado brillante.";
+const ESPECIFICACIONES_40x90 = "Medida 40 x 90 cm: compuesto por 3 cuadros de 30x40 cm Ideal para decorar espacios medianos, como salas o habitaciones. Incluye soporte metálico y acabado brillante.";
+const ESPECIFICACIONES_60x105 = "Medida 60 x 105 cm: compuesto por 3 cuadros de 60x35 cm Ideal para espacios amplios, como salas o comedores. Incluye soporte metálico y acabado brillante.";
+const ESPECIFICACIONES_70x120 = "Medida 70 x 120 cm: compuesto por 3 cuadros de 40x70 cm Ideal para espacios grandes, como salas o oficinas. Incluye soporte metálico y acabado brillante.";
+const ESPECIFICACIONES_80x150 = "Medida 80 x 150 cm: compuesto por 3 cuadros de 50x80 cm Ideal para espacios muy amplios, como salas grandes o áreas de recepción. Incluye soporte metálico y acabado brillante.";
 
 // 1. Catálogo Cuadros CON LUZ LED (1 pieza)
 const MEDIDAS_LED = [
-  { tamano: "30 x 70 cm", precio: 105000, especificaciones: ESPECIFICACIONES_GENERALES },
-  { tamano: "40 x 90 cm", precio: 140000, especificaciones: ESPECIFICACIONES_GENERALES },
-  { tamano: "60 x 100 cm", precio: 190000, especificaciones: ESPECIFICACIONES_GENERALES },
-  { tamano: "70 x 120 cm", precio: 240000, especificaciones: ESPECIFICACIONES_GENERALES }
+  { tamano: "30 x 70 cm", precio: 105000, especificaciones: ESPECIFICACIONES_LED },
+  { tamano: "40 x 90 cm", precio: 140000, especificaciones: ESPECIFICACIONES_LED },
+  { tamano: "60 x 100 cm", precio: 190000, especificaciones: ESPECIFICACIONES_LED },
+  { tamano: "70 x 120 cm", precio: 240000, especificaciones: ESPECIFICACIONES_LED }
 ];
 
 // 2. Catálogo Cuadros COMPLETOS SIN LUZ (1 pieza)
 const MEDIDAS_COMPLETOS = [
-  { tamano: "40 x 90 cm", precio: 115000, especificaciones: ESPECIFICACIONES_GENERALES },
-  { tamano: "50 x 100 cm", precio: 120000, especificaciones: ESPECIFICACIONES_GENERALES },
-  { tamano: "60 x 100 cm", precio: 140000, especificaciones: ESPECIFICACIONES_GENERALES },
-  { tamano: "70 x 120 cm", precio: 180000, especificaciones: ESPECIFICACIONES_GENERALES },
-  { tamano: "140 x 80 cm", precio: 220000, especificaciones: ESPECIFICACIONES_GENERALES }
+  { tamano: "40 x 90 cm", precio: 125000, especificaciones: ESPECIFICACIONES_GENERALES },
+  { tamano: "50 x 100 cm", precio: 150000, especificaciones: ESPECIFICACIONES_GENERALES },
+  { tamano: "60 x 100 cm", precio: 170000, especificaciones: ESPECIFICACIONES_GENERALES },
+  { tamano: "70 x 120 cm", precio: 200000, especificaciones: ESPECIFICACIONES_GENERALES },
+  { tamano: "140 x 80 cm", precio: 250000, especificaciones: ESPECIFICACIONES_GENERALES }
 ];
 
-// 3. Catálogo TRÍPTICOS / POLÍPTICOS (3 o 5 piezas)
+// 3. Catálogo TRÍPTICOS / POLÍPTICOS (3 piezas)
 const MEDIDAS_TRIPTICOS = [
-  { tamano: "80 x 50 cm total", precio: 120000, especificaciones: ESPECIFICACIONES_GENERALES },
-  { tamano: "120 x 80 cm total", precio: 180000, especificaciones: ESPECIFICACIONES_GENERALES },
-  { tamano: "150 x 90 cm total", precio: 240000, especificaciones: ESPECIFICACIONES_GENERALES }
+  { tamano: "30 x 60 cm total", precio: 75000, especificaciones: ESPECIFICACIONES_30x60 },
+  { tamano: "40 x 90 cm total", precio: 120000, especificaciones: ESPECIFICACIONES_40x90 },
+  { tamano: "60 x 105 cm total", precio: 165000, especificaciones: ESPECIFICACIONES_60x105 },
+  { tamano: "70 x 120 cm total", precio: 200000, especificaciones: ESPECIFICACIONES_70x120 },
+  { tamano: "80 x 150 cm total", precio: 240000, especificaciones: ESPECIFICACIONES_80x150 }
+];
+
+// 4. Catálogo CUADROS 5 PIEZAS (5 piezas)
+const MEDIDAS_CINCO_PIEZAS = [
+  { tamano: "50 x 100 cm total", precio: 145000, especificaciones: ESPECIFICACIONES_GENERALES },
+  { tamano: "70 x 125 cm total", precio: 190000, especificaciones: ESPECIFICACIONES_GENERALES },
+  { tamano: "80 x 150 cm total", precio: 230000, especificaciones: ESPECIFICACIONES_GENERALES },
+  { tamano: "100 x 200 cm total", precio: 350000, especificaciones: ESPECIFICACIONES_GENERALES }
+];
+
+// 5. PERSONALIZADOS UNA PIEZA (1 pieza)
+const MEDIDAS_PERSONALIZADOS = [
+  { tamano: "20 x 30 cm", precio: 25000, especificaciones: ESPECIFICACIONES_GENERALES },
+  { tamano: "30 x 40 cm", precio: 40000, especificaciones: ESPECIFICACIONES_GENERALES },
+  { tamano: "40 x 50 cm", precio: 75000, especificaciones: ESPECIFICACIONES_GENERALES },
+  { tamano: "50 x 70 cm", precio: 100000, especificaciones: ESPECIFICACIONES_GENERALES },
+  { tamano: "90 x 90 cm", precio: 110000, especificaciones: ESPECIFICACIONES_GENERALES }
 ];
 
 // Cargar datos
@@ -65,17 +94,21 @@ function renderizarCatalogo() {
   }
 
   filtrados.forEach(cuadro => {
-    const esTriptico = cuadro.piezas > 1;
     const esConLuz = cuadro.tipo === "con_luz" || cuadro.tieneLuz === true;
+    const esPersonalizado = cuadro.tipo === "personalizado" || (cuadro.etiquetas && cuadro.etiquetas.includes("personalizado"));
 
     // Asignar grupo de medidas según la naturaleza del producto cargado
     let medidasDelCuadro = [];
     if (cuadro.medidas && cuadro.medidas.length > 0) {
       medidasDelCuadro = cuadro.medidas;
-    } else if (esTriptico) {
-      medidasDelCuadro = MEDIDAS_TRIPTICOS;
     } else if (esConLuz) {
       medidasDelCuadro = MEDIDAS_LED;
+    } else if (cuadro.piezas === 3) {
+      medidasDelCuadro = MEDIDAS_TRIPTICOS;
+    } else if (cuadro.piezas === 5) {
+      medidasDelCuadro = MEDIDAS_CINCO_PIEZAS;
+    } else if (esPersonalizado) {
+      medidasDelCuadro = MEDIDAS_PERSONALIZADOS;
     } else {
       medidasDelCuadro = MEDIDAS_COMPLETOS;
     }
@@ -119,14 +152,15 @@ function renderizarCatalogo() {
             </select>
           </div>
 
-          <details class="specs-accordion" >
+          <details class="specs-accordion">
             <summary><i class="fas fa-info-circle"></i> Ficha Técnica y Materiales</summary>
-            <p>${ESPECIFICACIONES_GENERALES}</p>
+            <!-- AHORA CARGA LA ESPECIFICACIÓN INICIAL CORRESPONDIENTE DE LA MEDIDA -->
+            <p id="specs-${cuadro.id}">${medidaInicial.especificaciones}</p>
           </details>
 
           <details class="specs-accordion">
             <summary><i class="fas fa-truck"></i> Envíos y Pagos</summary>
-            <p>Envíos garantizados a todo Colombia. Paga al recibir o financia con Addi / Sistecrédito.</p>
+            <p>Envíos garantizados a todo Colombia. Paga al recibir o recibe un 10% descuento si realizas una bono del 50%</p>
           </details>
 
           <div class="card-footer">
@@ -145,7 +179,7 @@ function renderizarCatalogo() {
   });
 }
 
-// Cambiar precio según medida seleccionada
+// Cambiar precio Y ESPECIFICACIONES según medida seleccionada
 function cambiarMedida(cuadroId, indexMedida) {
   const cuadro = cuadrosData.find(c => c.id === cuadroId);
   if (!cuadro) return;
@@ -153,7 +187,9 @@ function cambiarMedida(cuadroId, indexMedida) {
   const medidas = cuadro.medidasPobladas || MEDIDAS_COMPLETOS;
   const seleccion = medidas[indexMedida] || medidas[0];
 
+  // Actualiza tanto el precio como el texto de las especificaciones
   document.getElementById(`price-${cuadroId}`).innerText = `$${seleccion.precio.toLocaleString()}`;
+  document.getElementById(`specs-${cuadroId}`).innerText = seleccion.especificaciones;
 }
 
 // Filtros y búsqueda
