@@ -19,21 +19,41 @@ collections:
             name: "cuadros"
             widget: "list"
             fields:
-              - { label: "ID Único", name: "id", widget: "string" }
+              - { label: "ID Único", name: "id", widget: "string", hint: "Ejemplo: ref-0659" }
               - { label: "Título del Cuadro", name: "titulo", widget: "string" }
-              - { label: "Número de Piezas", name: "piezas", widget: "number", value_type: "int" }
-              - { label: "Imagen Principal", name: "imagen", widget: "image" }
               
+              # 💡 CAMPO NUEVO: Tipo de Producto (Neon vs Sin Luz)
+              - label: "Tipo de Producto"
+                name: "tipo"
+                widget: "select"
+                default: "sin_luz"
+                options:
+                  - { label: "Sin Luz LED (Cuadro Completo / Tríptico)", value: "sin_luz" }
+                  - { label: "Con Luz LED Neon", value: "con_luz" }
+
+              # 💡 MEJORA: Desplegable para seleccionar número de piezas
+              - label: "Número de Piezas"
+                name: "piezas"
+                widget: "select"
+                default: 1
+                value_type: "int"
+                options:
+                  - { label: "1 Pieza (Completo / LED)", value: 1 }
+                  - { label: "3 Piezas (Tríptico)", value: 3 }
+                  - { label: "5 Piezas (Políptico)", value: 5 }
+
+              - { label: "Imagen Principal", name: "imagen", widget: "image" }
               
               - label: "Etiquetas / Categorías"
                 name: "etiquetas"
                 widget: "list"
                 field: { label: "Etiqueta", name: "tag", widget: "string" }
                 
-              # Medidas y Precios
-              - label: "Medidas y Precios"
+              # Medidas y Precios (Opcional: Si lo dejas vacío, JS usará los valores por defecto automáticos)
+              - label: "Medidas y Precios Especiales (Opcional)"
                 name: "medidas"
                 widget: "list"
+                required: false
                 fields:
                   - { label: "Tamaño (ej: 80 x 50 cm)", name: "tamano", widget: "string" }
                   - { label: "Precio ($)", name: "precio", widget: "number", value_type: "int" }
