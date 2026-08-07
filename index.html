@@ -59,16 +59,13 @@
         </li>
 
     
-        <li class="dropdown">
-          <a href="#" class="nav-link">Categorías <i class="fas fa-chevron-down"></i></a>
-          <ul class="dropdown-menu">
-            <li><a href="#" class="btn-tag" data-filter="etiqueta" data-value="billetes">Billetes / Dinero</a></li>
-            <li><a href="#" class="btn-tag" data-filter="etiqueta" data-value="sala">Sala</a></li>
-            <li><a href="#" class="btn-tag" data-filter="etiqueta" data-value="paisajes">Paisajes</a></li>
-            <li><a href="#" class="btn-tag" data-filter="etiqueta" data-value="eroticos">Eróticos</a></li>
-            <li><a href="#" class="btn-tag" data-filter="etiqueta" data-value="abstracto">Abstracto</a></li>
-          </ul>
-        </li>
+<li class="dropdown">
+  <a href="#" class="nav-link">Categorías <i class="fas fa-chevron-down"></i></a>
+  <ul class="dropdown-menu" id="dropdown-categorias">
+    <!-- Se llenará automáticamente desde app.js -->
+    <li><a href="#" class="btn-tag active" data-filter="etiqueta" data-value="todas">Todas las categorías</a></li>
+  </ul>
+</li>
 
         <li><a href="#" class="nav-link sale-tag">Nuevos Diseños</a></li>
       </ul>
@@ -78,7 +75,7 @@
   <!-- 4. Filtros de Botones Rápidos (Pills) -->
   <section class="filters-container">
     <div class="quick-filters">
-      <span class="filter-label">Explorar por etiqueta:</span>
+      <!-- <span class="filter-label">Explorar por etiqueta:</span>
       <div class="pills-wrapper">
         <button class="btn-tag active" data-filter="etiqueta" data-value="todas">Todas</button>
         <button class="btn-tag" data-filter="etiqueta" data-value="billetes">Billetes</button>
@@ -86,7 +83,7 @@
         <button class="btn-tag" data-filter="etiqueta" data-value="paisajes">Paisajes</button>
         <button class="btn-tag" data-filter="etiqueta" data-value="eroticos">Eróticos</button>
         <button class="btn-tag" data-filter="etiqueta" data-value="abstracto">Abstracto</button>
-      </div>
+      </div> -->
     </div>
   </section>
 
