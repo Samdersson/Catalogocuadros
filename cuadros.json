@@ -57,6 +57,16 @@
       "etiquetas": [
         "neon dolar cuadro"
       ]
+    },
+    {
+      "tipo": "con_luz",
+      "piezas": 1,
+      "imagen": "imagenes/003-n.png",
+      "id": "003-N",
+      "titulo": "Tio Rico Neon",
+      "etiquetas": [
+        "tio rico neon dolar "
+      ]
     }
   ]
 }
