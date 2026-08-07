@@ -8,33 +8,7 @@
       "etiquetas": [
         "animales"
       ],
-      "medidas": [
-        {
-          "tamano": "30x60 ",
-          "precio": 75000,
-          "especificaciones": "compuesto por 3  cuadros de 20x30 cm"
-        },
-        {
-          "tamano": "90x40 ",
-          "precio": 125000,
-          "especificaciones": "compuesto por 3 cuadros de 30x40 cm"
-        },
-        {
-          "tamano": "105x60",
-          "precio": 165000,
-          "especificaciones": "compuesto por tres cuadros de 35x60 cm"
-        },
-        {
-          "tamano": "120x70",
-          "precio": 200000,
-          "especificaciones": "Compuesto por 3 cuadros de 40x70 cm"
-        },
-        {
-          "tamano": "141x80",
-          "precio": 250000,
-          "especificaciones": "com puesto por tres cuadros de 47x80 cm"
-        }
-      ],
+      "medidas": [],
       "tipo": "sin_luz"
     },
     {
