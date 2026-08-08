@@ -1,5 +1,6 @@
 let cuadrosData = [];
 let filtroPiezasActual = "todas";
+let filtroTipoActual = "todos"; // 👈 Nueva variable para soportar tipo (con_luz / sin_luz)
 let filtroEtiquetaActual = "todas";
 let busquedaTextoActual = "";
 
@@ -130,14 +131,28 @@ function renderizarCatalogo() {
   container.innerHTML = "";
 
   const filtrados = cuadrosData.filter(item => {
+    const esConLuzItem = item.tipo === "con_luz" || item.tieneLuz === true;
+
+    // 1. Evaluación del filtro de Piezas
     const coincidePiezas = filtroPiezasActual === "todas" || item.piezas.toString() === filtroPiezasActual;
+    
+    // 2. Evaluación del nuevo filtro por TIPO (Neón / Sin Luz) 👈
+    let coincideTipo = true;
+    if (filtroTipoActual === "con_luz" || filtroTipoActual === "neon") {
+      coincideTipo = esConLuzItem;
+    } else if (filtroTipoActual === "sin_luz") {
+      coincideTipo = !esConLuzItem;
+    }
+
+    // 3. Evaluación del filtro por Etiquetas
     const coincideEtiqueta = filtroEtiquetaActual === "todas" || (item.etiquetas && item.etiquetas.map(t => t.toLowerCase()).includes(filtroEtiquetaActual));
     
+    // 4. Búsqueda por texto
     const texto = busquedaTextoActual.toLowerCase();
     const coincideTexto = item.titulo.toLowerCase().includes(texto) || 
                           (item.etiquetas && item.etiquetas.some(tag => tag.toLowerCase().includes(texto)));
 
-    return coincidePiezas && coincideEtiqueta && coincideTexto;
+    return coincidePiezas && coincideTipo && coincideEtiqueta && coincideTexto;
   });
 
   if (filtrados.length === 0) {
@@ -253,15 +268,22 @@ function setupEventListeners() {
     const tipo = btn.dataset.filter;
     const valor = btn.dataset.value;
 
-    if (tipo === 'piezas') filtroPiezasActual = valor;
-    if (tipo === 'etiqueta') filtroEtiquetaActual = valor;
+    if (tipo === 'piezas') {
+      filtroPiezasActual = valor;
+      filtroTipoActual = "todos"; // Resetea el filtro de tipo cuando se busca por piezas
+    } else if (tipo === 'tipo') {
+      filtroTipoActual = valor;  // Soporta "con_luz" 👈
+      filtroPiezasActual = "todas"; // Resetea piezas para mostrar todos los neón
+    } else if (tipo === 'etiqueta') {
+      filtroEtiquetaActual = valor;
+    }
 
-    // Actualizar clases activas en los botones correspondientes
+    // Actualizar clases activas en la interfaz
     if (tipo === 'etiqueta') {
       document.querySelectorAll('#dropdown-categorias .btn-tag').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-    } else if (tipo === 'piezas') {
-      document.querySelectorAll('[data-filter="piezas"]').forEach(b => b.classList.remove('active'));
+    } else if (tipo === 'piezas' || tipo === 'tipo') {
+      document.querySelectorAll('.btn-filter, .btn-neon-filter').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
     }
 
