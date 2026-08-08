@@ -565,3 +565,245 @@ body {
   line-height: 1.4;
   border-top: 1px solid #27272a;
 }
+
+/* ==========================================
+   PREVISUALIZACIÓN DE IMÁGENES
+   ========================================== */
+
+.card-img img {
+  cursor: pointer;
+}
+
+/* Fondo oscuro */
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Imagen ampliada */
+.image-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+}
+
+/* Botón cerrar */
+.image-modal .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+/* correccion de stilos moviles */
+/* ==========================
+   VISOR DE IMÁGENES
+   ========================== */
+
+.card-img img {
+  cursor: pointer;
+}
+
+.image-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.image-modal img {
+  max-width: 95%;
+  max-height: 95%;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0,0,0,.5);
+}
+
+.image-modal .close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: white;
+  font-size: 45px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+.image-modal .close:hover {
+  color: #ffcc00;
+}
+
+/* estilos para abrir la imagen
+/* Modal de Imagen Ampliada */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 85vh;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+/* Indicador visual de que la imagen de la tarjeta es clickeable */
+.card-img {
+  cursor: zoom-in;
+}
+
+/* footer */
+/* Footer & Redes Sociales */
+.site-footer {
+  background-color: var(--card-bg, #1e1e1e);
+  border-top: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  padding: 2.5rem 1rem;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.footer-text {
+  color: var(--text-muted, #a0a0a0);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.dev-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.dev-link:hover {
+  color: var(--accent-color, #00d2ff);
+  text-decoration: underline;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+/* Estilos base para los botones del footer */
+.btn-dev-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Botón Sitio Web 360Digital */
+.btn-web {
+  background-color: transparent;
+  color: #00d2ff;
+  border: 1px solid #00d2ff;
+}
+
+.btn-web:hover {
+  background-color: #00d2ff;
+  color: #000;
+  box-shadow: 0 4px 15px rgba(0, 210, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Botón Portafolio Samdersson */
+.btn-portfolio {
+  background-color: transparent;
+  color: #a855f7;
+  border: 1px solid #a855f7;
+}
+
+.btn-portfolio:hover {
+  background-color: #a855f7;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Botón Instagram */
+.btn-instagram {
+  background-color: transparent;
+  color: #e1306c;
+  border: 1px solid #e1306c;
+}
+
+.btn-instagram:hover {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(225, 48, 108, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Botón WhatsApp */
+.btn-whatsapp {
+  background-color: transparent;
+  color: #25d366;
+  border: 1px solid #25d366;
+}
+
+.btn-whatsapp:hover {
+  background-color: #25d366;
+  color: #000;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Ajuste responsivo para pantallas medianas/grandes */
+@media (min-width: 768px) {
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

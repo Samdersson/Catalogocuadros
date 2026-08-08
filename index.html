@@ -45,7 +45,7 @@
     
     <nav class="main-nav">
       <ul>
-        <li><a href="#" class="nav-link active" data-filter="etiqueta" data-value="todas">Inicio</a></li>
+        <li><a href="index.html" class="nav-link active" data-filter="etiqueta" data-value="todas">Inicio</a></li>
         
     
         <li class="dropdown">
@@ -94,6 +94,59 @@
     </div>
   </main>
 
+  <!-- Modal para ver la imagen ampliada -->
+  <div id="image-modal" class="modal-overlay" onclick="cerrarModalImagen()">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modal-img-target" alt="Imagen ampliada">
+  </div>
+
   <script src="app.js"></script>
 </body>
+
+<!-- Footer de la Marca, Portafolio y Contacto de Desarrollo -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <p class="footer-text">
+      Desarrollado por 
+      <a href="https://samdersson.netlify.app/" target="_blank" rel="noopener noreferrer" class="dev-link">
+        <strong>Samdersson Nuñez</strong>
+      </a> 
+      • 
+      <a href="https://360-digital.vercel.app/" target="_blank" rel="noopener noreferrer" class="dev-link">
+        <strong>360Digital</strong>
+      </a>
+    </p>
+    
+    <div class="footer-links">
+      <a href="https://360-digital.vercel.app/" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="btn-dev-social btn-web">
+        <i class="fas fa-globe"></i> Sitio Web 360Digital
+      </a>
+
+      <a href="https://samdersson.netlify.app/" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="btn-dev-social btn-portfolio">
+        <i class="fas fa-user-code"></i> Portafolio desarrollador
+      </a>
+
+      <a href="https://www.instagram.com/360digital.co" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="btn-dev-social btn-instagram">
+        <i class="fab fa-instagram"></i> @360digital.co
+      </a>
+
+      <a href="https://wa.me/573187752351?text=%C2%A1Hola%20360Digital!%20%F0%9F%90%9D%20Me%20interesa%20solicitar%20el%20desarrollo%20de%20un%20sitio%20web%20o%20cat%C3%A1logo%20virtual." 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="btn-dev-social btn-whatsapp">
+        <i class="fab fa-whatsapp"></i> Solicitar Desarrollo
+      </a>
+    </div>
+  </div>
+</footer>
+
 </html>

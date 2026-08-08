@@ -133,8 +133,8 @@ function renderizarCatalogo() {
     const coincidePiezas = filtroPiezasActual === "todas" || item.piezas.toString() === filtroPiezasActual;
     const coincideEtiqueta = filtroEtiquetaActual === "todas" || (item.etiquetas && item.etiquetas.map(t => t.toLowerCase()).includes(filtroEtiquetaActual));
     
-const texto = busquedaTextoActual.toLowerCase();
-    const coincideTexto = (item.titulo ? item.titulo.toLowerCase() : "").includes(texto) || 
+    const texto = busquedaTextoActual.toLowerCase();
+    const coincideTexto = item.titulo.toLowerCase().includes(texto) || 
                           (item.etiquetas && item.etiquetas.some(tag => tag.toLowerCase().includes(texto)));
 
     return coincidePiezas && coincideEtiqueta && coincideTexto;
@@ -145,10 +145,7 @@ const texto = busquedaTextoActual.toLowerCase();
     return;
   }
 
-filtrados.forEach(cuadro => {
-    // Omitir cuadros incompletos (sin titulo o id) para no romper el render
-    if (!cuadro.titulo || !cuadro.id) return;
-
+  filtrados.forEach(cuadro => {
     const esConLuz = cuadro.tipo === "con_luz" || cuadro.tieneLuz === true;
     const esPersonalizado = cuadro.tipo === "personalizado" || (cuadro.etiquetas && cuadro.etiquetas.includes("personalizado"));
 
@@ -182,7 +179,8 @@ filtrados.forEach(cuadro => {
 
     const cardHTML = `
       <div class="card" id="card-${cuadro.id}">
-        <div class="card-img">
+        <!-- 🖼️ IMAGEN CLICKEABLE PARA VER EN TAMAÑO COMPLETO -->
+        <div class="card-img" onclick="abrirModalImagen('${cuadro.imagen}')">
           <img src="${cuadro.imagen}" alt="${cuadro.titulo}">
           <span class="badge-piezas">${badgeTipo}</span>
         </div>
@@ -245,7 +243,7 @@ function cambiarMedida(cuadroId, indexMedida) {
   if (elemSpecs) elemSpecs.innerText = seleccion.especificaciones;
 }
 
-// Escuchadores de eventos para filtros y búsqueda (usando delegación para elementos dinámicos)
+// Escuchadores de eventos para filtros y búsqueda
 function setupEventListeners() {
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('[data-filter]');
@@ -289,7 +287,27 @@ function pedirPorWhatsapp(titulo, cuadroId) {
   const esConLuz = cuadro && (cuadro.tipo === "con_luz" || cuadro.tieneLuz === true);
   const tipoTexto = esConLuz ? "Cuadro con Luz LED Neon" : "Cuadro Completo Estándar";
 
-  const mensaje = `¡Hola *360 Digital*! 🖼️\nQuiero pedir el producto: *${cuadroId}*\n\n📌 *Tipo:* ${tipoTexto}\n📐 *Medida:* ${medidaText}\n💰 *Precio:* ${precioText}\n\n¿Me indican los pasos para realizar la compra?`;
+  const mensaje = `¡Hola *360 Digital*! 🖼️\nQuiero pedir el producto: *${titulo}*\n\n📌 *Tipo:* ${tipoTexto}\n📐 *Medida:* ${medidaText}\n💰 *Precio:* ${precioText}\n\n¿Me indican los pasos para realizar la compra?`;
 
   window.open(`https://wa.me/573187752351?text=${encodeURIComponent(mensaje)}`, '_blank');
+}
+
+// 🔍 FUNCIONES DEL MODAL / LIGHTBOX
+function abrirModalImagen(rutaImagen) {
+  const modal = document.getElementById("image-modal");
+  const modalImg = document.getElementById("modal-img-target");
+  
+  if (modal && modalImg) {
+    modalImg.src = rutaImagen;
+    modal.style.display = "flex";
+    document.body.style.overflow = "hidden"; // Evita el scroll del fondo
+  }
+}
+
+function cerrarModalImagen() {
+  const modal = document.getElementById("image-modal");
+  if (modal) {
+    modal.style.display = "none";
+    document.body.style.overflow = "auto"; // Restablece el scroll de la página
+  }
 }
