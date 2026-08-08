@@ -60,6 +60,17 @@
         "eroticos",
         "parejas"
       ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 3,
+      "imagen": "imagenes/2025676.jpg",
+      "id": "202576",
+      "titulo": "ENAMORADOS ETERNOS DORADO Y PLATA",
+      "etiquetas": [
+        "erotico",
+        "parejas"
+      ]
     }
   ]
 }
