@@ -1,1 +1,65 @@
-{"cuadros":[{"id":"202501","imagen":"imagenes/10.jpg","titulo":"Caballo Metalizado","piezas":3,"etiquetas":["animales"],"medidas":[],"tipo":"sin_luz"},{"id":"Ref : 202574","imagen":"https://lh3.googleusercontent.com/pw/AP1GczOWNKlG8WlCEtAN-7Qb_6ud_1u3N3fNxQps5633kEgxzKlUGgZWOGgoIf8kMmoq5UreMXvPecktjdcAvK4i64i7zmHhzDNp2orsLV64aQhEC47jf-pZYR7LBDqnQYgqNIyrkIGYA5j3XPJVkep4fA36=w579-h640-s-no-gm?authuser=0","titulo":"Mujer tipo oleo","piezas":1,"etiquetas":["completos"],"medidas":[],"tipo":"sin_luz"},{"tipo":"con_luz","piezas":1,"imagen":"imagenes/001-n.png","id":"001 n","titulo":"dolar negro neon","etiquetas":["neon dolar cuadro"]},{"tipo":"con_luz","piezas":1,"imagen":"imagenes/003-n.png","id":"003-N","titulo":"Tio Rico Neon","etiquetas":["tio rico neon dolar "]},{"id":"5-piezas","titulo":"Cuadro de 5 piezas","tipo":"sin_luz","piezas":5,"imagen":"imagenes/2.jpg","medidas":[]}]}
+{
+  "cuadros": [
+    {
+      "id": "202501",
+      "imagen": "imagenes/10.jpg",
+      "titulo": "Caballo Metalizado",
+      "piezas": 3,
+      "etiquetas": [
+        "animales"
+      ],
+      "medidas": [],
+      "tipo": "sin_luz"
+    },
+    {
+      "id": "Ref : 202574",
+      "imagen": "https://lh3.googleusercontent.com/pw/AP1GczOWNKlG8WlCEtAN-7Qb_6ud_1u3N3fNxQps5633kEgxzKlUGgZWOGgoIf8kMmoq5UreMXvPecktjdcAvK4i64i7zmHhzDNp2orsLV64aQhEC47jf-pZYR7LBDqnQYgqNIyrkIGYA5j3XPJVkep4fA36=w579-h640-s-no-gm?authuser=0",
+      "titulo": "Mujer tipo oleo",
+      "piezas": 1,
+      "etiquetas": [
+        "completos"
+      ],
+      "medidas": [],
+      "tipo": "sin_luz"
+    },
+    {
+      "tipo": "con_luz",
+      "piezas": 1,
+      "imagen": "imagenes/001-n.png",
+      "id": "001 n",
+      "titulo": "dolar negro neon",
+      "etiquetas": [
+        "neon dolar cuadro"
+      ]
+    },
+    {
+      "tipo": "con_luz",
+      "piezas": 1,
+      "imagen": "imagenes/003-n.png",
+      "id": "003-N",
+      "titulo": "Tio Rico Neon",
+      "etiquetas": [
+        "tio rico neon dolar "
+      ]
+    },
+    {
+      "id": "5-piezas",
+      "titulo": "Cuadro de 5 piezas",
+      "tipo": "sin_luz",
+      "piezas": 5,
+      "imagen": "imagenes/2.jpg",
+      "medidas": []
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 3,
+      "imagen": "imagenes/2025675.jpg",
+      "id": "2025675",
+      "titulo": "ENAMORADOS ETERNOS PLATA",
+      "etiquetas": [
+        "eroticos",
+        "parejas"
+      ]
+    }
+  ]
+}
