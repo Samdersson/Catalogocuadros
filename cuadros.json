@@ -71,6 +71,19 @@
         "erotico",
         "parejas"
       ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 3,
+      "imagen": "imagenes/20235.jpg",
+      "id": "20235",
+      "titulo": "FE AMOR ESPERANZA ",
+      "etiquetas": [
+        "FE",
+        "AMOR",
+        "ESPERANZA",
+        "RELIGIOSOS"
+      ]
     }
   ]
 }
