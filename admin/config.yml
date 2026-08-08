@@ -9,12 +9,12 @@ media_folder: "imagenes"
 public_folder: "imagenes"
 
 # Configuración del gestor de medios para optimizar y usar WebP
-media_library:
-  name: cloudinary
-  config:
-    default_transformations:
-      - fetch_format: "auto" # Sirve formato WebP/AVIF según el navegador
-        quality: "auto"      # Comprime calidad sin perder nitidez HD
+# media_library:
+#   name: cloudinary
+#   config:
+#     default_transformations:
+#       - fetch_format: "auto" # Sirve formato WebP/AVIF según el navegador
+#         quality: "auto"      # Comprime calidad sin perder nitidez HD
 
 collections:
   - name: "cuadros"
