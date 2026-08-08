@@ -3,14 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo de Cuadros - 360 Digital</title>
+
+  <!-- ===== SEO ON-PAGE ===== -->
+  <title>Catálogo de Cuadros Decorativos | 360 Digital</title>
+  <meta name="description" content="Cuadros decorativos para sala, trípticos, cuadros con luz LED neón y personalizados. Impresión HD en MDF 9mm, envíos a todo Colombia, ¡compra y paga al recibir!">
+  <meta name="keywords" content="cuadros decorativos, cuadros para sala, cuadros LED neón, trípticos, cuadros personalizados, decoración del hogar, cuadros Colombia, 360 Digital">
+  <meta name="author" content="360 Digital">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="canonical" href="https://catalogo-cuadros.netlify.app/">
+  <meta name="geo.region" content="CO">
+  <meta name="geo.placename" content="Colombia">
+
+  <!-- ===== OPEN GRAPH (Facebook / WhatsApp / LinkedIn) ===== -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="360 Digital - Catálogo de Cuadros">
+  <meta property="og:title" content="Catálogo de Cuadros Decorativos | 360 Digital">
+  <meta property="og:description" content="Cuadros decorativos, trípticos, cuadros con luz LED neón y personalizados. Impresión HD en MDF 9mm, envíos a todo Colombia. ¡Compra y paga al recibir!">
+  <meta property="og:url" content="https://catalogo-cuadros.netlify.app/">
+  <meta property="og:image" content="https://catalogo-cuadros.netlify.app/Iconos/web%20site.png">
+  <meta property="og:image:alt" content="Logo de 360 Digital - Catálogo de Cuadros">
+  <meta property="og:locale" content="es_CO">
+
+  <!-- ===== TWITTER CARD ===== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Catálogo de Cuadros Decorativos | 360 Digital">
+  <meta name="twitter:description" content="Cuadros decorativos, trípticos, cuadros con luz LED neón y personalizados. Impresión HD en MDF 9mm, envíos a todo Colombia.">
+  <meta name="twitter:image" content="https://catalogo-cuadros.netlify.app/Iconos/web%20site.png">
+
+  <!-- ===== PWA / MANIFEST ===== -->
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <!-- ===== ESTILOS Y FUENTES ===== -->
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="Iconos/web site.png">
   <link rel="shortcut icon" type="image/png" href="Iconos/web site.png">
   <link rel="apple-touch-icon" href="Iconos/web site.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <!-- Íconos FontAwesome para el buscador y menús -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- ===== DATOS ESTRUCTURADOS JSON-LD ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "360 Digital - Catálogo de Cuadros",
+    "url": "https://catalogo-cuadros.netlify.app/",
+    "description": "Catálogo de cuadros decorativos: cuadros para sala, trípticos, cuadros con luz LED neón y cuadros personalizados en Colombia.",
+    "inLanguage": "es-CO",
+    "publisher": {
+      "@type": "Organization",
+      "name": "360 Digital",
+      "url": "https://360-digital.vercel.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://catalogo-cuadros.netlify.app/Iconos/web%20site.png"
+      }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "360 Digital",
+    "url": "https://catalogo-cuadros.netlify.app/",
+    "logo": "https://catalogo-cuadros.netlify.app/Iconos/web%20site.png",
+    "sameAs": [
+      "https://www.instagram.com/360digital.co",
+      "https://360-digital.vercel.app/"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+57-3187752351",
+      "contactType": "ventas",
+      "areaServed": "CO",
+      "availableLanguage": "Spanish"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -21,62 +97,55 @@
     <span><i class="fas fa-truck"></i> ¡Compra y Paga al Recibir!</span>
   </div>
 
-  <!-- 2. Header / Navbar Principal -->
+<!-- 2. Header / Navbar Principal -->
   <header class="main-header">
     <div class="header-container">
       
       <!-- Logo -->
-      <a href="index.html" class="logo">
-        <h2>360<span>Digital</span></h2>
+      <a href="index.html" class="logo" aria-label="360 Digital - Inicio">
+        <span class="logo-text"><span class="logo-brand">360</span><span>Digital</span></span>
       </a>
 
       <!-- Buscador Central -->
-      <div class="search-box">
-        <i class="fas fa-search"></i>
-        <input type="text" id="searchInput" placeholder="¿Qué temática buscas? (ej. Billetes, Paisajes...)">
+      <div class="search-box" role="search">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <label for="searchInput" class="sr-only">Buscar cuadros por temática</label>
+        <input type="text" id="searchInput" placeholder="¿Qué temática buscas? (ej. Billetes, Paisajes...)" aria-label="Buscar cuadros por temática">
       </div>
 
       <!-- Íconos de Usuario / Carrito -->
       <div class="header-icons">
-        <a href="https://360-digital.vercel.app/" ></i>
-        <img src="Iconos/web site.png" alt="Logo de 360 Digital"  style="height: 50PX;">
+        <a href="https://360-digital.vercel.app/" aria-label="Visitar el sitio web de 360 Digital">
+          <img src="Iconos/web site.png" alt="Logo de 360 Digital" width="50" height="50" style="height: 50px;">
         </a>
       </div>
 
     </div>
 
-    
-    <nav class="main-nav">
+    <!-- Navegación principal -->
+    <nav class="main-nav" aria-label="Navegación principal">
       <ul>
-        <!-- <li><a href="index.html" class="nav-link active" data-filter="etiqueta" data-value="todas">Inicio</a></li> -->
-        
-    
-<nav class="main-nav">
-  <ul>
-    <li><a href="index.html" class="nav-link active" data-filter="etiqueta" data-value="todas">Inicio</a></li>
-    
-    <li class="dropdown">
-        <a href="#" class="nav-link">Catálogo <i class="fas fa-chevron-down"></i></a>
-        <ul class="dropdown-menu">
-          <li><a href="#" class="btn-filter" data-filter="piezas" data-value="todas">Ver Todos</a></li>
-          <li><a href="#" class="btn-filter" data-filter="piezas" data-value="1">1 Pieza</a></li>
-          <li><a href="#" class="btn-filter" data-filter="piezas" data-value="3">Trípticos (3 Piezas)</a></li>
-          <li><a href="#" class="btn-filter" data-filter="piezas" data-value="5">5 Piezas</a></li>
-          <!-- Opción agregada para Neón -->
-          <li><a href="#" class="btn-filter" data-filter="tipo" data-value="con_luz"><i class="fas fa-bolt"></i> Luz LED Neón</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
+        <li><a href="index.html" class="nav-link active" data-filter="etiqueta" data-value="todas">Inicio</a></li>
 
-    
-<li class="dropdown">
-  <a href="#" class="nav-link">Categorías <i class="fas fa-chevron-down"></i></a>
-  <ul class="dropdown-menu" id="dropdown-categorias">
-    <!-- Se llenará automáticamente desde app.js -->
-    <li><a href="#" class="btn-tag active" data-filter="etiqueta" data-value="todas">Todas las categorías</a></li>
-  </ul>
-</li>
+        <li class="dropdown">
+          <a href="#" class="nav-link" aria-haspopup="true">Catálogo <i class="fas fa-chevron-down" aria-hidden="true"></i></a>
+          <ul class="dropdown-menu" aria-label="Filtrar por número de piezas">
+            <li><a href="#" class="btn-filter" data-filter="piezas" data-value="todas">Ver Todos</a></li>
+            <li><a href="#" class="btn-filter" data-filter="piezas" data-value="1">1 Pieza</a></li>
+            <li><a href="#" class="btn-filter" data-filter="piezas" data-value="3">Trípticos (3 Piezas)</a></li>
+            <li><a href="#" class="btn-filter" data-filter="piezas" data-value="5">5 Piezas</a></li>
+            <!-- Opción agregada para Neón -->
+            <li><a href="#" class="btn-filter" data-filter="tipo" data-value="con_luz"><i class="fas fa-bolt" aria-hidden="true"></i> Luz LED Neón</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="nav-link" aria-haspopup="true">Categorías <i class="fas fa-chevron-down" aria-hidden="true"></i></a>
+          <ul class="dropdown-menu" id="dropdown-categorias" aria-label="Filtrar por categoría">
+            <!-- Se llenará automáticamente desde app.js -->
+            <li><a href="#" class="btn-tag active" data-filter="etiqueta" data-value="todas">Todas las categorías</a></li>
+          </ul>
+        </li>
 
         <li><a href="#" class="nav-link sale-tag">Nuevos Diseños</a></li>
       </ul>

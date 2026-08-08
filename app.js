@@ -84,10 +84,51 @@ document.addEventListener("DOMContentLoaded", () => {
       cuadrosData = data.cuadros || data;
       renderizarMenuCategorias();
       renderizarCatalogo();
+      injectarDatosEstructurados();
       setupEventListeners();
     })
     .catch(err => console.error("Error al cargar cuadros.json:", err));
 });
+
+// Generar JSON-LD ItemList con los productos del catálogo (SEO)
+function injectarDatosEstructurados() {
+  if (!cuadrosData || cuadrosData.length === 0) return;
+
+  const items = cuadrosData.map((cuadro, index) => {
+    const precio = (cuadro.medidas && cuadro.medidas[0] && cuadro.medidas[0].precio) 
+      || parseFloat(cuadro.precio) || 0;
+    const imagenAbs = cuadro.imagen.startsWith("http")
+      ? cuadro.imagen
+      : "https://catalogo-cuadros.netlify.app/" + cuadro.imagen.replace(/^\.?\//, "");
+
+    return {
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Product",
+        "name": cuadro.titulo,
+        "image": imagenAbs,
+        "description": cuadro.descripcion || `Cuadro decorativo ${cuadro.titulo} en impresión HD sobre MDF 9mm. Disponible en 360 Digital, envíos a todo Colombia.`,
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "COP",
+          "price": precio,
+          "availability": "https://schema.org/InStock"
+        }
+      }
+    };
+  });
+
+  const sl = document.createElement("script");
+  sl.type = "application/ld+json";
+  sl.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Catálogo de Cuadros Decorativos 360 Digital",
+    "itemListElement": items
+  });
+  document.head.appendChild(sl);
+}
 
 // Renderizar dinámicamente las categorías en el menú desplegable
 function renderizarMenuCategorias() {
@@ -187,21 +228,24 @@ function renderizarCatalogo() {
       `<option value="${index}">${m.tamano}</option>`
     ).join("");
 
-    const tagsHTML = (cuadro.etiquetas || []).map(t => `<span class="tag-mini">${t}</span>`).join("");
+const tagsHTML = (cuadro.etiquetas || []).map(t => `<span class="tag-mini">${t}</span>`).join("");
 
     let badgeTipo = `${cuadro.piezas} ${cuadro.piezas === 1 ? 'Pieza' : 'Piezas'}`;
     if (esConLuz) badgeTipo += ' • Iluminación LED';
 
+    // Alt descriptivo para SEO e imágenes
+    const altTexto = `Cuadro decorativo ${cuadro.titulo}${esConLuz ? ' con luz LED neón' : ''} - 360 Digital`;
+
     const cardHTML = `
-      <div class="card" id="card-${cuadro.id}">
+      <div class="card" id="card-${cuadro.id}" itemscope itemtype="https://schema.org/Product">
         <!-- 🖼️ IMAGEN CLICKEABLE PARA VER EN TAMAÑO COMPLETO -->
         <div class="card-img" onclick="abrirModalImagen('${cuadro.imagen}')">
-          <img src="${cuadro.imagen}" alt="${cuadro.titulo}">
+          <img src="${cuadro.imagen}" alt="${altTexto}" loading="lazy" width="400" height="400" itemprop="image">
           <span class="badge-piezas">${badgeTipo}</span>
         </div>
 
         <div class="card-body">
-          <h3 class="card-title">${cuadro.titulo}</h3>
+          <h3 class="card-title" itemprop="name">${cuadro.titulo}</h3>
           <div class="card-tags">${tagsHTML}</div>
 
           <div class="product-highlights">

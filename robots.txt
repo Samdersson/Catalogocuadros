@@ -1,0 +1,13 @@
+# robots.txt - Catálogo de Cuadros 360 Digital
+# https://catalogo-cuadros.netlify.app/
+
+# Permitir a todos los buscadores indexar el sitio
+User-agent: *
+Allow: /
+
+# Bloquear el panel de administración (Decap CMS)
+Disallow: /admin/
+Disallow: /admin
+
+# Indicar la ubicación del sitemap
+Sitemap: https://catalogo-cuadros.netlify.app/sitemap.xml

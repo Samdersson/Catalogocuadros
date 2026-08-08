@@ -30,7 +30,8 @@ collections:
             fields:
               - { label: "ID Único", name: "id", widget: "string", hint: "Ejemplo: ref-0659" }
               - { label: "Título del Cuadro", name: "titulo", widget: "string" }
-              
+              - { label: "Descripción SEO", name: "descripcion", widget: "text", hint: "Descripción breve (150-160 caracteres) para aparecer en Google y redes sociales." }
+
               - label: "Tipo de Producto"
                 name: "tipo"
                 widget: "select"

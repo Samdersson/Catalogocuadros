@@ -73,15 +73,28 @@ body {
   text-decoration: none;
 }
 
-.logo h2 {
+.logo-text {
   color: #fff;
   font-size: 1.5rem;
   font-weight: 800;
   letter-spacing: -0.5px;
 }
 
-.logo span {
+.logo-text .logo-brand {
   color: var(--yellow-accent);
+}
+
+/* Clase de accesibilidad: solo legible por lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Buscador Central */
