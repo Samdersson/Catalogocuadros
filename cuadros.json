@@ -2,6 +2,54 @@
   "cuadros": [
     {
       "tipo": "sin_luz",
+      "piezas": 3,
+      "imagen": "imagenes/ddb797c6-107f-4a32-a242-f9d3f01eadba.jpeg",
+      "id": "Paris ",
+      "titulo": "Paris ",
+      "descripcion": "Cuadros decorativos paisajes ",
+      "etiquetas": [
+        "Paisajes ",
+        "Urbano"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 3,
+      "imagen": "imagenes/f0763e4f-e370-4180-8a54-99e9e4796970.jpeg",
+      "id": "Paris",
+      "titulo": "Paris",
+      "descripcion": "Cuadros decorativos paisajes",
+      "etiquetas": [
+        "Paisajes",
+        "Urbano "
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 3,
+      "imagen": "imagenes/5363a9e5-ba14-470e-be0a-67acedde5c4d.jpeg",
+      "id": "Paisaje",
+      "titulo": "Paisaje urbano ",
+      "descripcion": "Cuadros decorativos paisajes ",
+      "etiquetas": [
+        "Paisajes ",
+        "Urbano "
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 3,
+      "imagen": "imagenes/5e899a52-1a16-4bb3-81bf-5e19b7ce93ec.jpeg",
+      "id": "Venecia 1",
+      "titulo": "Venecia",
+      "descripcion": "Cuadros decorativos paisajes",
+      "etiquetas": [
+        "Paisajes",
+        "Urbano"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
       "piezas": 1,
       "imagen": "imagenes/img_3117.jpeg",
       "id": "Dólar ",
