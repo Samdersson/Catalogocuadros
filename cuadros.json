@@ -2,6 +2,62 @@
   "cuadros": [
     {
       "tipo": "sin_luz",
+      "piezas": 5,
+      "id": "REF2025678",
+      "titulo": "Vecindad del Chavo",
+      "descripcion": "cuadros decorativos",
+      "imagen": "https://lh3.googleusercontent.com/pw/AP1GczNVgfzw-6eJTi-olED153GFDPbmuuy_zAdZh3XEve4jhOFSpQcAcxlXZ4JvK-j-OjfKNBLkpq0EOgMeMmeB8nFj1c-RKxmbilwjgk18oCTyeQaD7S_IVCYi0nka7NdEsziC86Fjlm8sBSRSO5JRRsCN=w649-h649-s-no-gm?authuser=0",
+      "etiquetas": []
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 5,
+      "id": "REF: 20226",
+      "titulo": "Leon de colores",
+      "descripcion": "cuadros decorativos",
+      "imagen": "https://lh3.googleusercontent.com/pw/AP1GczPo9hXljEjOz0leQRVjIE3kvL37pMKrb66RBkmvQSt3M_sNrQmDfRgSbAcRMzoSDXWcgM3HtXO0KwNfNb-yfB3kT2-jQTmwZxivFP62UmhDfhRaZxN4z22Notcs8IGN8ycj_oSdutJEBRE90I2fdoWB=w683-h535-s-no-gm?authuser=0",
+      "etiquetas": [
+        "animales",
+        null,
+        null
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 5,
+      "id": "REF: 20224",
+      "titulo": "Auroras",
+      "descripcion": "cuadros decorativos",
+      "imagen": "https://lh3.googleusercontent.com/pw/AP1GczOMrjhT99kRHISg6Ekvkd2hVEaXnGb8XoNy4UzXeL5p9vSKNPudeAjQWVBSV39KL6ZDc3GfiuU3nGUtS6C0uQ6CuR8R0jZLMhbt54lFVGwgclHmEra2Pz_yRZUedF5XXd12sqg2iHid10Jk-b8YacmQ=w649-h649-s-no-gm?authuser=0",
+      "etiquetas": [
+        "paisajes"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 5,
+      "id": "REF: 20223",
+      "titulo": "Leon de judá",
+      "descripcion": "cuadros personbalizados",
+      "imagen": "https://lh3.googleusercontent.com/pw/AP1GczM6eI0t6QD5_bvf7POFvRrzH7jLgun1C0ZVjvvknYsKj_DPQ2rzPPznLLA29DJv1VuwpQ4EBY5PFFRsPM5PW_64VzvNr3mMuEA92XETFECdnyGtfkrPenbR_E86Cr2JMqcwW2qVi0hGGwB7Sbi13ZRt=w649-h649-s-no-gm?authuser=0",
+      "etiquetas": [
+        "animales"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 5,
+      "id": "REF: 20221",
+      "titulo": "Espacio",
+      "descripcion": "cuadros decorativos",
+      "imagen": "https://lh3.googleusercontent.com/pw/AP1GczMfiwYEWw8j8Ka9ZyIgnoEIC66vSN23RME_7RX_ySdUexp13zktPDV3s7OErIL0QGIBSJ3WpJP7lWLa2lrAKpJUMD2M8m-AowqwL3rfqi2bM3NUHZmovZwSHDD9D8wpEV-EkY2g7U6532nlFObKzrQI=w649-h649-s-no-gm?authuser=0",
+      "etiquetas": [
+        "paisaje",
+        "espacio"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
       "piezas": 1,
       "id": "REF: 2025750",
       "titulo": "Jesus Pop Art",
