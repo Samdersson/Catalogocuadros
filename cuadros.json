@@ -1,6 +1,17 @@
 {
   "cuadros": [
     {
+      "tipo": "sin_luz",
+      "piezas": 1,
+      "imagen": "imagenes/3.jpg",
+      "id": "2026002",
+      "titulo": "arte musical",
+      "descripcion": "cuadro decorativo para espacios musicales neon",
+      "etiquetas": [
+        "musical"
+      ]
+    },
+    {
       "tipo": "con_luz",
       "piezas": 1,
       "imagen": "imagenes/gemini_generated_image_m9132sm9132sm913-1-.png",
