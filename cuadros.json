@@ -3,6 +3,18 @@
     {
       "tipo": "sin_luz",
       "piezas": 1,
+      "imagen": "imagenes/img_1741.jpeg",
+      "id": "Tío rico",
+      "titulo": "Dólar Mac pato",
+      "descripcion": "Cuadro de dólar tío rico",
+      "etiquetas": [
+        "Dolar",
+        "Animados "
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 1,
       "imagen": "imagenes/img_8052.jpeg",
       "id": "DLR-AZ",
       "titulo": "Dólar tono azul",
