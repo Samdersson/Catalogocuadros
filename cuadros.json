@@ -1,6 +1,19 @@
 {
   "cuadros": [
     {
+      "tipo": "con_luz",
+      "piezas": 1,
+      "imagen": "imagenes/gemini_generated_image_m9132sm9132sm913-1-.png",
+      "id": "202601",
+      "titulo": "luna llena",
+      "descripcion": "cuadro de luna llena con iluminacion led",
+      "etiquetas": [
+        "paisajes",
+        "neon",
+        "luna"
+      ]
+    },
+    {
       "id": "202501",
       "imagen": "imagenes/10.jpg",
       "titulo": "Caballo Metalizado",
