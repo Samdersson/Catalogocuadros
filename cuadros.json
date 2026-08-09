@@ -2,6 +2,29 @@
   "cuadros": [
     {
       "tipo": "sin_luz",
+      "piezas": 1,
+      "imagen": "imagenes/img_3117.jpeg",
+      "id": "Dólar ",
+      "titulo": "Dollar original ",
+      "descripcion": "Cuadros de billetes de dolar",
+      "etiquetas": [
+        "Dolar"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 3,
+      "imagen": "imagenes/img_5471.jpeg",
+      "id": "Súper héroes ",
+      "titulo": "Súper héroes ",
+      "descripcion": "Cuadros para bebés ",
+      "etiquetas": [
+        "Infantil",
+        "Animados"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
       "piezas": 3,
       "imagen": "imagenes/img_6058.jpeg",
       "titulo": "Animales animados ",
