@@ -1,76 +1,100 @@
-{"cuadros":[
-  {
-    "id":"202501",
-    "imagen":"imagenes/10.jpg",
-    "titulo":"Caballo Metalizado",
-    "piezas":3,
-    "etiquetas":["animales"],
-    "medidas":[],
-    "tipo":"sin_luz",
-    "descripcion":"Tríptico de caballo metalizado en impresión HD sobre MDF 9mm. Decoración elegante y moderna para sala, ideal para amantes de los animales."
-  },
-  {
-    "id":"Ref : 202574",
-    "imagen":"https://lh3.googleusercontent.com/pw/AP1GczOWNKlG8WlCEtAN-7Qb_6ud_1u3N3fNxQps5633kEgxzKlUGgZWOGgoIf8kMmoq5UreMXvPecktjdcAvK4i64i7zmHhzDNp2orsLV64aQhEC47jf-pZYR7LBDqnQYgqNIyrkIGYA5j3XPJVkep4fA36=w579-h640-s-no-gm?authuser=0",
-    "titulo":"Mujer tipo oleo",
-    "piezas":1,
-    "etiquetas":["completos"],
-    "medidas":[],
-    "tipo":"sin_luz",
-    "descripcion":"Cuadro completo de mujer estilo óleo en impresión HD sobre MDF 9mm. Pieza única de arte para decorar con elegancia cualquier espacio."
-  },
-  {
-    "tipo":"con_luz",
-    "piezas":1,
-    "imagen":"imagenes/001-n.png",
-    "id":"001 n",
-    "titulo":"dolar negro neon",
-    "etiquetas":["neon dolar cuadro"],
-    "descripcion":"Cuadro con luz LED neón de dólar negro. Iluminación moderna y llamativa, impresión HD sobre MDF 9mm con sistema de iluminación LED."
-  },
-  {
-    "tipo":"con_luz",
-    "piezas":1,
-    "imagen":"imagenes/003-n.png",
-    "id":"003-N",
-    "titulo":"Tio Rico Neon",
-    "etiquetas":["tio rico neon dolar"],
-    "descripcion":"Cuadro con luz LED neón del Tío Rico. Diseño luminoso y divertido, impresión HD sobre MDF 9mm con sistema de iluminación LED."
-  },
-  {
-    "id":"5-piezas",
-    "titulo":"Cuadro de 5 piezas",
-    "tipo":"sin_luz",
-    "piezas":5,
-    "imagen":"imagenes/2.jpg",
-    "medidas":[],
-    "descripcion":"Set de cuadros decorativos de 5 piezas en diferentes tamaños. Ideal para crear un efecto visual impactante en salas, comedores y espacios amplios."
-  },
-  {
-    "tipo":"sin_luz",
-    "piezas":3,
-    "imagen":"imagenes/2025675.jpg",
-    "id":"2025675",
-    "titulo":"ENAMORADOS ETERNOS PLATA",
-    "etiquetas":["eroticos","parejas"],
-    "descripcion":"Tríptico Enamorados Eternos en acabado plata. Cuadro romántico en impresión HD sobre MDF 9mm, perfecto para decorar la habitación con un toque sensual."
-  },
-  {
-    "tipo":"sin_luz",
-    "piezas":3,
-    "imagen":"imagenes/2025676.jpg",
-    "id":"202576",
-    "titulo":"ENAMORADOS ETERNOS DORADO Y PLATA",
-    "etiquetas":["erotico","parejas"],
-    "descripcion":"Tríptico Enamorados Eternos en acabado dorado y plata. Cuadro romántico en impresión HD sobre MDF 9mm, ideal para ambientes íntimos y elegantes."
-  },
-  {
-    "tipo":"sin_luz",
-    "piezas":3,
-    "imagen":"imagenes/20235.jpg",
-    "id":"20235",
-    "titulo":"FE AMOR ESPERANZA",
-    "etiquetas":["FE","AMOR","ESPERANZA","RELIGIOSOS"],
-    "descripcion":"Tríptico religioso FE, AMOR y ESPERANZA en impresión HD sobre MDF 9mm. Decoración espiritual y significativa para el hogar."
-  }
-]}
+{
+  "cuadros": [
+    {
+      "id": "202501",
+      "imagen": "imagenes/10.jpg",
+      "titulo": "Caballo Metalizado",
+      "piezas": 3,
+      "etiquetas": [
+        "animales"
+      ],
+      "medidas": [],
+      "tipo": "sin_luz",
+      "descripcion": "Tríptico de caballo metalizado en impresión HD sobre MDF 9mm. Decoración elegante y moderna para sala, ideal para amantes de los animales."
+    },
+    {
+      "id": "Ref : 202574",
+      "imagen": "https://lh3.googleusercontent.com/pw/AP1GczOWNKlG8WlCEtAN-7Qb_6ud_1u3N3fNxQps5633kEgxzKlUGgZWOGgoIf8kMmoq5UreMXvPecktjdcAvK4i64i7zmHhzDNp2orsLV64aQhEC47jf-pZYR7LBDqnQYgqNIyrkIGYA5j3XPJVkep4fA36=w579-h640-s-no-gm?authuser=0",
+      "titulo": "Mujer tipo oleo",
+      "piezas": 1,
+      "etiquetas": [
+        "completos"
+      ],
+      "medidas": [],
+      "tipo": "sin_luz",
+      "descripcion": "Cuadro completo de mujer estilo óleo en impresión HD sobre MDF 9mm. Pieza única de arte para decorar con elegancia cualquier espacio."
+    },
+    {
+      "tipo": "con_luz",
+      "piezas": 1,
+      "imagen": "imagenes/001-n.png",
+      "id": "001 n",
+      "titulo": "dolar negro neon",
+      "etiquetas": [
+        "neon dolar cuadro"
+      ],
+      "descripcion": "Cuadro con luz LED neón de dólar negro. Iluminación moderna y llamativa, impresión HD sobre MDF 9mm con sistema de iluminación LED."
+    },
+    {
+      "tipo": "con_luz",
+      "piezas": 1,
+      "imagen": "imagenes/003-n.png",
+      "id": "003-N",
+      "titulo": "Tio Rico Neon",
+      "etiquetas": [
+        "tio rico neon dolar"
+      ],
+      "descripcion": "Cuadro con luz LED neón del Tío Rico. Diseño luminoso y divertido, impresión HD sobre MDF 9mm con sistema de iluminación LED."
+    },
+    {
+      "id": "0024",
+      "titulo": "Musica",
+      "tipo": "sin_luz",
+      "piezas": 1,
+      "imagen": "imagenes/2.jpg",
+      "medidas": [],
+      "descripcion": "cuadro musical",
+      "etiquetas": [
+        "musical"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 3,
+      "imagen": "imagenes/2025675.jpg",
+      "id": "2025675",
+      "titulo": "ENAMORADOS ETERNOS PLATA",
+      "etiquetas": [
+        "eroticos",
+        "parejas"
+      ],
+      "descripcion": "Tríptico Enamorados Eternos en acabado plata. Cuadro romántico en impresión HD sobre MDF 9mm, perfecto para decorar la habitación con un toque sensual."
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 3,
+      "imagen": "imagenes/2025676.jpg",
+      "id": "202576",
+      "titulo": "ENAMORADOS ETERNOS DORADO Y PLATA",
+      "etiquetas": [
+        "erotico",
+        "parejas"
+      ],
+      "descripcion": "Tríptico Enamorados Eternos en acabado dorado y plata. Cuadro romántico en impresión HD sobre MDF 9mm, ideal para ambientes íntimos y elegantes."
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 3,
+      "imagen": "imagenes/20235.jpg",
+      "id": "20235",
+      "titulo": "FE AMOR ESPERANZA",
+      "etiquetas": [
+        "FE",
+        "AMOR",
+        "ESPERANZA",
+        "RELIGIOSOS"
+      ],
+      "descripcion": "Tríptico religioso FE, AMOR y ESPERANZA en impresión HD sobre MDF 9mm. Decoración espiritual y significativa para el hogar."
+    }
+  ]
+}
