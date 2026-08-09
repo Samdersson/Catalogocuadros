@@ -3,6 +3,14 @@
     {
       "tipo": "sin_luz",
       "piezas": 1,
+      "imagen": "imagenes/img_8052.jpeg",
+      "id": "DLR-AZ",
+      "titulo": "Dólar tono azul",
+      "descripcion": "Cuadro decorativos de búllete de dolar"
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 1,
       "imagen": "imagenes/3.jpg",
       "id": "2026002",
       "titulo": "arte musical",
