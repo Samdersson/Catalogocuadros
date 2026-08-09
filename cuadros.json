@@ -2,6 +2,18 @@
   "cuadros": [
     {
       "tipo": "sin_luz",
+      "piezas": 3,
+      "imagen": "imagenes/img_4872.jpeg",
+      "id": "Figuras de metal rostros",
+      "titulo": "Enamorados eternos  ",
+      "descripcion": "Cuadro decorativos eroticos",
+      "etiquetas": [
+        "Erotico",
+        "Enamorados"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
       "piezas": 1,
       "imagen": "imagenes/img_1741.jpeg",
       "id": "Tío rico",
