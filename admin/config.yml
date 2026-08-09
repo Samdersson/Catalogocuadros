@@ -27,6 +27,7 @@ collections:
           - label: "Cuadros"
             name: "cuadros"
             widget: "list"
+            add_to_top: true
             fields:
               - { label: "ID Único", name: "id", widget: "string", hint: "Ejemplo: ref-0659" }
               - { label: "Título del Cuadro", name: "titulo", widget: "string" }
