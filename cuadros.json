@@ -1,6 +1,18 @@
 {
   "cuadros": [
     {
+      "tipo": "con_luz",
+      "piezas": 1,
+      "imagen": "imagenes/img_6590.jpeg",
+      "id": "Neón 2",
+      "titulo": "Estudio neon",
+      "descripcion": "Cuadros decorativos con iluminación led",
+      "etiquetas": [
+        "Neon",
+        "Estudio"
+      ]
+    },
+    {
       "tipo": "sin_luz",
       "piezas": 3,
       "imagen": "imagenes/39a5f466e1c8eb62d5ab20f362b110e8.jpeg",
