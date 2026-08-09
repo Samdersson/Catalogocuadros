@@ -1,6 +1,19 @@
 {
   "cuadros": [
     {
+      "tipo": "sin_luz",
+      "piezas": 3,
+      "imagen": "imagenes/img_6058.jpeg",
+      "titulo": "Animales animados ",
+      "id": "Animales animados ",
+      "descripcion": "Cuadros para bebés ",
+      "etiquetas": [
+        "Animados",
+        "Bebés",
+        "Infantil"
+      ]
+    },
+    {
       "tipo": "con_luz",
       "piezas": 1,
       "imagen": "imagenes/img_6590.jpeg",
