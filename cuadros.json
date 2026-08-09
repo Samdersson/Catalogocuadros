@@ -2,6 +2,63 @@
   "cuadros": [
     {
       "tipo": "sin_luz",
+      "piezas": 1,
+      "id": "REF: 202563",
+      "titulo": "Monos de la Sabiduria",
+      "descripcion": "cuadros motivacionales ",
+      "imagen": "https://lh3.googleusercontent.com/pw/AP1GczMyV7b401AtN5Vpv-K8URqVEWPreDYOP4EbkJ2WSRodZWxdnBZcSBGskXyzaNRtvZoExK9hLUVGo_bOfupldf6tmWDQj-kGiHp73R8oUn8O1MISLPAKO8A6pYHTesndkgc8s0kVTiyGLuPrAYUBV0LT=w587-h649-s-no-gm?authuser=0",
+      "etiquetas": [
+        "animales",
+        "pop art"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 1,
+      "id": "REF: 202564",
+      "titulo": "Gato Negro",
+      "descripcion": "cuadros decorativos",
+      "imagen": "https://lh3.googleusercontent.com/pw/AP1GczOrjN7piDR5Vr6y_Z0lMhRCVq5xwbasYEWE5MyuiUNdoyFvcZ09rBH52u4lwiC-QDtN_6CdYDkw_lDy9MbW-RyK5gItOrW3eiR-Z0CJedbKM0EZX3iQ2jep3gU2o1hr2woyPYUUE02QgCf6ewg29j91=w587-h649-s-no-gm?authuser=0",
+      "etiquetas": [
+        "animales"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 1,
+      "id": "REF: 202565",
+      "titulo": "Buho Colores",
+      "descripcion": "cuadros decorativos",
+      "imagen": "https://lh3.googleusercontent.com/pw/AP1GczMyRc9vIa8XqTI5DrLCPuNFVBigHbSYEC4OUspiKpmgeUn2Xj3hD8w_308agwwey66AhctQcrhk_X6L4Bx7IdcVa2P8Y17xDKONi0cGj18EdjEJO5lnvJjOsvLErmX9xBejLpfTWgUnvu2MFg5vuHXB=w587-h649-s-no-gm?authuser=0",
+      "etiquetas": [
+        "animales"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 1,
+      "imagen": "https://lh3.googleusercontent.com/pw/AP1GczNgXwWJwGGNqTSkCkgle9-fEoYWb-iJGj0STbXNe49yM1OCR6VIJssPHeG0cDSD0exIN84wKE4KADY9IG4ULNESj1-ee6z65AK8PDl21G2vK3I0znrxw5CkR1uX6fpl529K9DJgT54vpAGnd77wWN6t=w599-h649-s-no-gm?authuser=0",
+      "id": "REF: 202567",
+      "titulo": "Rainy Dance",
+      "descripcion": "CUADROS DECORATIVOS",
+      "etiquetas": [
+        "oleo",
+        "paisajes"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 1,
+      "imagen": "https://lh3.googleusercontent.com/pw/AP1GczMtFDAFosNR3Phm-XiQhXl0G1G_T_eXyvdbwbVmJOdRFwGy_ykJwh8YpAgX7UFMQhHsjgol_0xoN6nxiavSu8cnJpnx3Fywm4oZoAcTQiz_RqZgYZH1A0R2gf-AevtGgpasyjw0rcBcjBH3p2AvVKEd=w580-h641-s-no-gm?authuser=0",
+      "id": "REF: 202561",
+      "titulo": "MUJER POP ART",
+      "descripcion": "CUADROS DECORATIVOS",
+      "etiquetas": [
+        "POP ART"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
       "piezas": 3,
       "imagen": "imagenes/ddb797c6-107f-4a32-a242-f9d3f01eadba.jpeg",
       "id": "Paris ",
