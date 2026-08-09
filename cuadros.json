@@ -3,6 +3,18 @@
     {
       "tipo": "sin_luz",
       "piezas": 3,
+      "imagen": "imagenes/39a5f466e1c8eb62d5ab20f362b110e8.jpeg",
+      "id": "Enamorados dúo tono",
+      "titulo": "Enamorados eternos ",
+      "descripcion": "Cuadros decorativos ",
+      "etiquetas": [
+        "Eroticos",
+        "Parejas"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 3,
       "imagen": "imagenes/img_4872.jpeg",
       "id": "Figuras de metal rostros",
       "titulo": "Enamorados eternos  ",
