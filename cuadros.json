@@ -95,6 +95,18 @@
         "RELIGIOSOS"
       ],
       "descripcion": "Tríptico religioso FE, AMOR y ESPERANZA en impresión HD sobre MDF 9mm. Decoración espiritual y significativa para el hogar."
+    },
+    {
+      "tipo": "con_luz",
+      "piezas": 1,
+      "imagen": "imagenes/3.jpg",
+      "id": "5522",
+      "titulo": "Dolar Animado",
+      "descripcion": "Cuadro decorativo de billete de dolar animado",
+      "etiquetas": [
+        "neon",
+        "billete"
+      ]
     }
   ]
 }
