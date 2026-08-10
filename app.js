@@ -1,6 +1,6 @@
 let cuadrosData = [];
 let filtroPiezasActual = "todas";
-let filtroTipoActual = "todos"; // 👈 Nueva variable para soportar tipo (con_luz / sin_luz)
+let filtroTipoActual = "todos"; // Soporta tipo (con_luz / sin_luz)
 let filtroEtiquetaActual = "todas";
 let busquedaTextoActual = "";
 
@@ -30,7 +30,7 @@ const MEDIDAS_COMPLETOS = [
   { tamano: "140 x 80 cm", precio: 250000, especificaciones: ESPECIFICACIONES_GENERALES }
 ];
 
-// 3. Catálogo TRÍPTICOS / POLÍPTICOS (3 piezas - Materiales + Detalle de dimensiones)
+// 3. Catálogo TRÍPTICOS / POLÍPTICOS (3 piezas)
 const MEDIDAS_TRIPTICOS = [
   { 
     tamano: "30 x 60 cm total", 
@@ -59,7 +59,7 @@ const MEDIDAS_TRIPTICOS = [
   }
 ];
 
-// 4. Catálogo CUADROS 5 PIEZAS (5 piezas)
+// 4. Catálogo CUADROS 5 PIEZAS
 const MEDIDAS_CINCO_PIEZAS = [
   { tamano: "50 x 100 cm total", precio: 145000, especificaciones: `${ESPECIFICACIONES_GENERALES}\n\n📐 ${ESPECIFICACIONES_5_PIEZAS_DETALLE}` },
   { tamano: "70 x 125 cm total", precio: 190000, especificaciones: `${ESPECIFICACIONES_GENERALES}\n\n📐 ${ESPECIFICACIONES_5_PIEZAS_DETALLE}` },
@@ -67,7 +67,7 @@ const MEDIDAS_CINCO_PIEZAS = [
   { tamano: "100 x 200 cm total", precio: 350000, especificaciones: `${ESPECIFICACIONES_GENERALES}\n\n📐 ${ESPECIFICACIONES_5_PIEZAS_DETALLE}` }
 ];
 
-// 5. PERSONALIZADOS UNA PIEZA (1 pieza)
+// 5. PERSONALIZADOS UNA PIEZA
 const MEDIDAS_PERSONALIZADOS = [
   { tamano: "20 x 30 cm", precio: 25000, especificaciones: ESPECIFICACIONES_GENERALES },
   { tamano: "30 x 40 cm", precio: 40000, especificaciones: ESPECIFICACIONES_GENERALES },
@@ -76,7 +76,7 @@ const MEDIDAS_PERSONALIZADOS = [
   { tamano: "90 x 90 cm", precio: 110000, especificaciones: ESPECIFICACIONES_GENERALES }
 ];
 
-// Cargar datos
+// Cargar datos al iniciar
 document.addEventListener("DOMContentLoaded", () => {
   fetch("cuadros.json")
     .then(res => res.json())
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(err => console.error("Error al cargar cuadros.json:", err));
 });
 
-// Generar JSON-LD ItemList con los productos del catálogo (SEO)
+// Generar JSON-LD ItemList para SEO
 function injectarDatosEstructurados() {
   if (!cuadrosData || cuadrosData.length === 0) return;
 
@@ -131,6 +131,7 @@ function injectarDatosEstructurados() {
 }
 
 // Renderizar dinámicamente las categorías en el menú desplegable
+// Renderizar dinámicamente las categorías en el menú desplegable
 function renderizarMenuCategorias() {
   const menuContainer = document.getElementById("dropdown-categorias");
   if (!menuContainer) return;
@@ -140,16 +141,30 @@ function renderizarMenuCategorias() {
   cuadrosData.forEach(cuadro => {
     if (cuadro.etiquetas && Array.isArray(cuadro.etiquetas)) {
       cuadro.etiquetas.forEach(tag => {
-        if (tag && tag.trim() !== "") {
-          todasLasEtiquetas.add(tag.trim().toLowerCase());
+        // Ignora valores null, undefined o que no sean texto
+        if (tag && typeof tag === 'string') {
+          const tagLimpio = tag.trim().toLowerCase();
+          if (tagLimpio.length > 0) {
+            todasLasEtiquetas.add(tagLimpio);
+          }
         }
       });
     }
   });
 
-  let htmlCategorias = `<li><a href="#" class="btn-tag ${filtroEtiquetaActual === 'todas' ? 'active' : ''}" data-filter="etiqueta" data-value="todas">Todas las categorías</a></li>`;
+  const etiquetasOrdenadas = Array.from(todasLasEtiquetas).sort();
 
-  todasLasEtiquetas.forEach(tag => {
+  // 1. Iniciar siempre con la opción "Todas las categorías"
+  let htmlCategorias = `
+    <li>
+      <a href="#" class="btn-tag ${filtroEtiquetaActual === 'todas' ? 'active' : ''}" data-filter="etiqueta" data-value="todas">
+        Todas las categorías
+      </a>
+    </li>
+  `;
+
+  // 2. Concatenar las categorías extraídas del JSON
+  etiquetasOrdenadas.forEach(tag => {
     const nombreFormateado = tag.charAt(0).toUpperCase() + tag.slice(1);
     const estaActivo = filtroEtiquetaActual === tag ? "active" : "";
 
@@ -162,9 +177,9 @@ function renderizarMenuCategorias() {
     `;
   });
 
+  // 3. Insertar el HTML completo en el contenedor
   menuContainer.innerHTML = htmlCategorias;
 }
-
 // Renderizar tarjetas del catálogo
 function renderizarCatalogo() {
   const container = document.getElementById("catalog-grid");
@@ -175,9 +190,9 @@ function renderizarCatalogo() {
     const esConLuzItem = item.tipo === "con_luz" || item.tieneLuz === true;
 
     // 1. Evaluación del filtro de Piezas
-    const coincidePiezas = filtroPiezasActual === "todas" || item.piezas.toString() === filtroPiezasActual;
+    const coincidePiezas = filtroPiezasActual === "todas" || (item.piezas && item.piezas.toString() === filtroPiezasActual);
     
-    // 2. Evaluación del nuevo filtro por TIPO (Neón / Sin Luz) 👈
+    // 2. Evaluación del filtro por TIPO (Neón / Sin Luz)
     let coincideTipo = true;
     if (filtroTipoActual === "con_luz" || filtroTipoActual === "neon") {
       coincideTipo = esConLuzItem;
@@ -185,13 +200,21 @@ function renderizarCatalogo() {
       coincideTipo = !esConLuzItem;
     }
 
+    // Limpieza segura de etiquetas (descarta nulos e higieniza texto)
+    const etiquetasLimpias = Array.isArray(item.etiquetas)
+      ? item.etiquetas
+          .filter(Boolean)
+          .map(t => t.toString().trim().toLowerCase())
+      : [];
+
     // 3. Evaluación del filtro por Etiquetas
-    const coincideEtiqueta = filtroEtiquetaActual === "todas" || (item.etiquetas && item.etiquetas.map(t => t.toLowerCase()).includes(filtroEtiquetaActual));
+    const coincideEtiqueta = filtroEtiquetaActual === "todas" || etiquetasLimpias.includes(filtroEtiquetaActual);
     
     // 4. Búsqueda por texto
     const texto = busquedaTextoActual.toLowerCase();
-    const coincideTexto = item.titulo.toLowerCase().includes(texto) || 
-                          (item.etiquetas && item.etiquetas.some(tag => tag.toLowerCase().includes(texto)));
+    const tituloValido = (item.titulo || "").toLowerCase();
+    const coincideTexto = tituloValido.includes(texto) || 
+                          etiquetasLimpias.some(tag => tag.includes(texto));
 
     return coincidePiezas && coincideTipo && coincideEtiqueta && coincideTexto;
   });
@@ -203,9 +226,10 @@ function renderizarCatalogo() {
 
   filtrados.forEach(cuadro => {
     const esConLuz = cuadro.tipo === "con_luz" || cuadro.tieneLuz === true;
-    const esPersonalizado = cuadro.tipo === "personalizado" || (cuadro.etiquetas && cuadro.etiquetas.includes("personalizado"));
+    const etiquetasRender = Array.isArray(cuadro.etiquetas) ? cuadro.etiquetas.filter(Boolean) : [];
+    const esPersonalizado = cuadro.tipo === "personalizado" || etiquetasRender.some(e => e.toString().toLowerCase().includes("personalizado"));
 
-    // Asignar grupo de medidas según las propiedades del objeto
+    // Asignar grupo de medidas
     let medidasDelCuadro = [];
     if (cuadro.medidas && cuadro.medidas.length > 0) {
       medidasDelCuadro = cuadro.medidas;
@@ -228,17 +252,15 @@ function renderizarCatalogo() {
       `<option value="${index}">${m.tamano}</option>`
     ).join("");
 
-const tagsHTML = (cuadro.etiquetas || []).map(t => `<span class="tag-mini">${t}</span>`).join("");
+    const tagsHTML = etiquetasRender.map(t => `<span class="tag-mini">${t}</span>`).join("");
 
-    let badgeTipo = `${cuadro.piezas} ${cuadro.piezas === 1 ? 'Pieza' : 'Piezas'}`;
+    let badgeTipo = `${cuadro.piezas || 1} ${cuadro.piezas === 1 ? 'Pieza' : 'Piezas'}`;
     if (esConLuz) badgeTipo += ' • Iluminación LED';
 
-    // Alt descriptivo para SEO e imágenes
     const altTexto = `Cuadro decorativo ${cuadro.titulo}${esConLuz ? ' con luz LED neón' : ''} - 360 Digital`;
 
     const cardHTML = `
       <div class="card" id="card-${cuadro.id}" itemscope itemtype="https://schema.org/Product">
-        <!-- 🖼️ IMAGEN CLICKEABLE PARA VER EN TAMAÑO COMPLETO -->
         <div class="card-img" onclick="abrirModalImagen('${cuadro.imagen}')">
           <img src="${cuadro.imagen}" alt="${altTexto}" loading="lazy" width="400" height="400" itemprop="image">
           <span class="badge-piezas">${badgeTipo}</span>
@@ -287,7 +309,7 @@ const tagsHTML = (cuadro.etiquetas || []).map(t => `<span class="tag-mini">${t}<
   });
 }
 
-// Cambiar precio y especificaciones dinámicamente
+// Cambiar precio y especificaciones según medida elegida
 function cambiarMedida(cuadroId, indexMedida) {
   const cuadro = cuadrosData.find(c => c.id === cuadroId);
   if (!cuadro) return;
@@ -314,15 +336,15 @@ function setupEventListeners() {
 
     if (tipo === 'piezas') {
       filtroPiezasActual = valor;
-      filtroTipoActual = "todos"; // Resetea el filtro de tipo cuando se busca por piezas
+      filtroTipoActual = "todos";
     } else if (tipo === 'tipo') {
-      filtroTipoActual = valor;  // Soporta "con_luz" 👈
-      filtroPiezasActual = "todas"; // Resetea piezas para mostrar todos los neón
+      filtroTipoActual = valor;
+      filtroPiezasActual = "todas";
     } else if (tipo === 'etiqueta') {
       filtroEtiquetaActual = valor;
     }
 
-    // Actualizar clases activas en la interfaz
+    // Actualizar clases activas en botones
     if (tipo === 'etiqueta') {
       document.querySelectorAll('#dropdown-categorias .btn-tag').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
@@ -343,7 +365,7 @@ function setupEventListeners() {
   }
 }
 
-// Redirección y pedido por WhatsApp
+// Pedido por WhatsApp
 function pedirPorWhatsapp(titulo, cuadroId) {
   const cuadro = cuadrosData.find(c => c.id === cuadroId);
   const selectMedida = document.getElementById(`size-${cuadroId}`);
@@ -358,7 +380,7 @@ function pedirPorWhatsapp(titulo, cuadroId) {
   window.open(`https://wa.me/573187752351?text=${encodeURIComponent(mensaje)}`, '_blank');
 }
 
-// 🔍 FUNCIONES DEL MODAL / LIGHTBOX
+// Modal / Lightbox para ver la imagen en tamaño grande
 function abrirModalImagen(rutaImagen) {
   const modal = document.getElementById("image-modal");
   const modalImg = document.getElementById("modal-img-target");
@@ -366,7 +388,7 @@ function abrirModalImagen(rutaImagen) {
   if (modal && modalImg) {
     modalImg.src = rutaImagen;
     modal.style.display = "flex";
-    document.body.style.overflow = "hidden"; // Evita el scroll del fondo
+    document.body.style.overflow = "hidden";
   }
 }
 
@@ -374,6 +396,6 @@ function cerrarModalImagen() {
   const modal = document.getElementById("image-modal");
   if (modal) {
     modal.style.display = "none";
-    document.body.style.overflow = "auto"; // Restablece el scroll de la página
+    document.body.style.overflow = "auto";
   }
 }

@@ -820,3 +820,28 @@ body {
     justify-content: space-between;
   }
 }
+
+/* 📜 Scroll Vertical para el menú de categorías */
+#dropdown-categorias {
+  max-height: 300px; /* Altura máxima visible (ajusta este valor a tu gusto) */
+  overflow-y: auto;  /* Activa la barra de desplazamiento vertical */
+}
+
+/* 🎨 Opcional: Estilo elegante y discreto para la barra de scroll */
+#dropdown-categorias::-webkit-scrollbar {
+  width: 6px;
+}
+
+#dropdown-categorias::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+#dropdown-categorias::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 4px;
+}
+
+#dropdown-categorias::-webkit-scrollbar-thumb:hover {
+  background: #ff0000; /* Resalta con el rojo de tu marca */
+}

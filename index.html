@@ -125,7 +125,7 @@
     <!-- Navegación principal -->
     <nav class="main-nav" aria-label="Navegación principal">
       <ul>
-        <li><a href="index.html" class="nav-link active" data-filter="etiqueta" data-value="todas">Inicio</a></li>
+        <li><a href="index.html" class="nav-link active" data-filter="etiqueta" data-value="todas">todas las categorias</a></li>
 
         <li class="dropdown">
           <a href="#" class="nav-link" aria-haspopup="true">Catálogo <i class="fas fa-chevron-down" aria-hidden="true"></i></a>
@@ -142,8 +142,7 @@
         <li class="dropdown">
           <a href="#" class="nav-link" aria-haspopup="true">Categorías <i class="fas fa-chevron-down" aria-hidden="true"></i></a>
           <ul class="dropdown-menu" id="dropdown-categorias" aria-label="Filtrar por categoría">
-            <!-- Se llenará automáticamente desde app.js -->
-            <li><a href="#" class="btn-tag active" data-filter="etiqueta" data-value="todas">Todas las categorías</a></li>
+            <!-- Se llena dinámicamente desde app.js (incluyendo "Todas las categorías") -->
           </ul>
         </li>
 
@@ -180,8 +179,7 @@
     <img class="modal-content" id="modal-img-target" alt="Imagen ampliada">
   </div>
 
-  <script src="app.js"></script>
-</body>
+
 
 <!-- Footer de la Marca, Portafolio y Contacto de Desarrollo -->
 <footer class="site-footer">
@@ -228,5 +226,8 @@
     </div>
   </div>
 </footer>
+
+  <script src="app.js"></script>
+</body>
 
 </html>
