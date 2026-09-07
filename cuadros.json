@@ -3,6 +3,15 @@
     {
       "tipo": "sin_luz",
       "piezas": 5,
+      "imagen": "imagenes/img_8246.jpeg",
+      "id": "4682",
+      "titulo": "Chespirito ",
+      "descripcion": "Cuadro decorativos Chespirito ",
+      "etiquetas": []
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 5,
       "id": "REF2025678",
       "titulo": "Vecindad del Chavo",
       "descripcion": "cuadros decorativos",
