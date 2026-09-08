@@ -2,6 +2,17 @@
   "cuadros": [
     {
       "tipo": "sin_luz",
+      "piezas": 3,
+      "imagen": "imagenes/35.jpg",
+      "id": "0035",
+      "titulo": "monos de la sabiduria",
+      "descripcion": "cuadros de animales cuadros decorativos",
+      "etiquetas": [
+        "animales"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
       "piezas": 1,
       "imagen": "imagenes/33.jpg",
       "id": "12456",
