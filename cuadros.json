@@ -2,6 +2,16 @@
   "cuadros": [
     {
       "tipo": "sin_luz",
+      "piezas": 1,
+      "imagen": "imagenes/33.jpg",
+      "id": "12456",
+      "titulo": "leon",
+      "etiquetas": [
+        "animales"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
       "piezas": 5,
       "imagen": "imagenes/img_8246.jpeg",
       "id": "4682",
