@@ -3,6 +3,17 @@
     {
       "tipo": "sin_luz",
       "piezas": 3,
+      "imagen": "imagenes/img_8215.jpeg",
+      "id": "0729",
+      "titulo": "Labios ",
+      "descripcion": "Cuadros de labios",
+      "etiquetas": [
+        "Eroticos"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 3,
       "imagen": "imagenes/35.jpg",
       "id": "0035",
       "titulo": "monos de la sabiduria",
