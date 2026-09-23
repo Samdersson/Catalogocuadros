@@ -3,6 +3,17 @@
     {
       "tipo": "sin_luz",
       "piezas": 1,
+      "imagen": "imagenes/2025685.jpg",
+      "id": "2025685",
+      "titulo": "DOLLAR EN LLAMAS",
+      "descripcion": "CUADROS DECORATIVOS",
+      "etiquetas": [
+        "dinero"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 1,
       "imagen": "imagenes/202539.jpg",
       "id": "202539",
       "titulo": "LEON SUMERGIDO",
