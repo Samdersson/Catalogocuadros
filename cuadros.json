@@ -3,6 +3,17 @@
     {
       "tipo": "sin_luz",
       "piezas": 1,
+      "id": "0041",
+      "titulo": "Dolar Tio Rico smoking",
+      "descripcion": "cuadros decorativos",
+      "imagen": "imagenes/41.jpg",
+      "etiquetas": [
+        "dinero"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 1,
       "id": "0039",
       "titulo": "Ganster girl",
       "descripcion": "cuadro girl",
