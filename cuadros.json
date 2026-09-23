@@ -3,6 +3,17 @@
     {
       "tipo": "sin_luz",
       "piezas": 1,
+      "imagen": "imagenes/2025711.jpg",
+      "id": "2025711",
+      "titulo": "PAREJA LEONES",
+      "descripcion": "cuadros decorativos",
+      "etiquetas": [
+        "animales"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 1,
       "imagen": "imagenes/2025685.jpg",
       "id": "2025685",
       "titulo": "DOLLAR EN LLAMAS",
