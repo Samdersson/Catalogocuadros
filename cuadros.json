@@ -3,6 +3,17 @@
     {
       "tipo": "sin_luz",
       "piezas": 1,
+      "imagen": "imagenes/202539.jpg",
+      "id": "202539",
+      "titulo": "LEON SUMERGIDO",
+      "descripcion": "CUADROS DECORATIVOS",
+      "etiquetas": [
+        "animales"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 1,
       "imagen": "imagenes/202567.jpg",
       "id": "202567",
       "titulo": "pintura oleo",
