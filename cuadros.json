@@ -3,6 +3,15 @@
     {
       "tipo": "sin_luz",
       "piezas": 1,
+      "id": "0040",
+      "titulo": "Tio Rico louis vuitton",
+      "descripcion": "cuadros decorativos cuadros animados",
+      "imagen": "imagenes/40.jpg",
+      "etiquetas": []
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 1,
       "id": "0041",
       "titulo": "Dolar Tio Rico smoking",
       "descripcion": "cuadros decorativos",
@@ -52,7 +61,8 @@
       "titulo": "leon",
       "etiquetas": [
         "animales"
-      ]
+      ],
+      "descripcion": "cuadros decorativos"
     },
     {
       "tipo": "sin_luz",
@@ -80,9 +90,7 @@
       "descripcion": "cuadros decorativos",
       "imagen": "https://lh3.googleusercontent.com/pw/AP1GczPo9hXljEjOz0leQRVjIE3kvL37pMKrb66RBkmvQSt3M_sNrQmDfRgSbAcRMzoSDXWcgM3HtXO0KwNfNb-yfB3kT2-jQTmwZxivFP62UmhDfhRaZxN4z22Notcs8IGN8ycj_oSdutJEBRE90I2fdoWB=w683-h535-s-no-gm?authuser=0",
       "etiquetas": [
-        "animales",
-        null,
-        null
+        "animales"
       ]
     },
     {
