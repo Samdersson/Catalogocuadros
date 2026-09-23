@@ -3,6 +3,37 @@
     {
       "tipo": "sin_luz",
       "piezas": 1,
+      "imagen": "imagenes/202567.jpg",
+      "id": "202567",
+      "titulo": "pintura oleo",
+      "etiquetas": [
+        "Oleo"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 1,
+      "imagen": "imagenes/2025692.jpg",
+      "id": "2025692",
+      "titulo": "vehiculo clasico",
+      "etiquetas": [
+        "vehiculos"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 3,
+      "imagen": "imagenes/20222.jpg",
+      "id": "20222",
+      "titulo": "Fases Lunares",
+      "descripcion": "cuadros deorativos",
+      "etiquetas": [
+        "paisajes"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 1,
       "id": "0040",
       "titulo": "Tio Rico louis vuitton",
       "descripcion": "cuadros decorativos cuadros animados",
