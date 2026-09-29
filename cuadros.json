@@ -3,6 +3,17 @@
     {
       "tipo": "sin_luz",
       "piezas": 1,
+      "id": "0042",
+      "titulo": "Dolar Bratz",
+      "descripcion": "cuadros decorativos",
+      "imagen": "imagenes/42.jpg",
+      "etiquetas": [
+        "dinero"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 1,
       "id": "2254",
       "titulo": "FAMILIA SIMPSOM",
       "descripcion": "CUADRO DECORATIVO",
