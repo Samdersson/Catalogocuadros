@@ -3,6 +3,17 @@
     {
       "tipo": "sin_luz",
       "piezas": 1,
+      "id": "2254",
+      "titulo": "FAMILIA SIMPSOM",
+      "descripcion": "CUADRO DECORATIVO",
+      "imagen": "imagenes/simsoms.jpg",
+      "etiquetas": [
+        "animados"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 1,
       "imagen": "imagenes/2025711.jpg",
       "id": "2025711",
       "titulo": "PAREJA LEONES",
