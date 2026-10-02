@@ -3,6 +3,17 @@
     {
       "tipo": "sin_luz",
       "piezas": 1,
+      "id": "00564",
+      "titulo": "Dolar Pablo Escobar",
+      "descripcion": "cuadros decorativos",
+      "imagen": "imagenes/whatsapp-image-2026-10-02-at-3.40.54-pm-1-.jpeg",
+      "etiquetas": [
+        "dinero"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 1,
       "id": "0042",
       "titulo": "Dolar Bratz",
       "descripcion": "cuadros decorativos",
