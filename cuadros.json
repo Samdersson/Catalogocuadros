@@ -6,7 +6,7 @@
       "id": "00564",
       "titulo": "Dolar Pablo Escobar",
       "descripcion": "cuadros decorativos",
-      "imagen": "imagenes/whatsapp-image-2026-10-02-at-3.40.54-pm-1-.jpeg",
+      "imagen": "imagenes/whatsapp-image-2026-10-02-at-3.40.54-pm.jpeg",
       "etiquetas": [
         "dinero"
       ]
@@ -74,7 +74,8 @@
       "titulo": "pintura oleo",
       "etiquetas": [
         "Oleo"
-      ]
+      ],
+      "descripcion": "cuadros decorativos"
     },
     {
       "tipo": "sin_luz",
@@ -84,7 +85,8 @@
       "titulo": "vehiculo clasico",
       "etiquetas": [
         "vehiculos"
-      ]
+      ],
+      "descripcion": "cuadros de vehiculos"
     },
     {
       "tipo": "sin_luz",
