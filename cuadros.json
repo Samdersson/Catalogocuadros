@@ -2,6 +2,17 @@
   "cuadros": [
     {
       "tipo": "sin_luz",
+      "piezas": 3,
+      "imagen": "imagenes/44.jpg",
+      "id": "0045",
+      "titulo": "Bodegon citricos 1",
+      "descripcion": "cuadros frutales",
+      "etiquetas": [
+        "cuadros de frutas"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
       "piezas": 1,
       "imagen": "imagenes/43.jpg",
       "id": "0043",
