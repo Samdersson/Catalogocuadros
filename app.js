@@ -6,7 +6,7 @@ let busquedaTextoActual = "";
 
 // ===== CONFIGURACIÓN DE PAGINACIÓN =====
 let paginaActual = 1;
-const productosPorPagina = 12; // Cantidad de cuadros por página
+const productosPorPagina = 15; // Cantidad de cuadros por página
 let productosFiltrados = [];
 
 // Texto de especificaciones general / materiales
@@ -323,13 +323,28 @@ function setupEventListeners() {
       filtroPiezasActual = "todas";
     } else if (tipo === 'etiqueta') {
       filtroEtiquetaActual = valor;
+
+      // SI SELECCIONA "TODAS LAS CATEGORÍAS", REINICIA LOS DEMÁS FILTROS
+      if (valor === 'todas') {
+        filtroPiezasActual = "todas";
+        filtroTipoActual = "todos";
+        busquedaTextoActual = "";
+
+        // Limpia el texto del buscador si hay alguno
+        const searchInput = document.getElementById("searchInput");
+        if (searchInput) searchInput.value = "";
+
+        // Remueve la clase activa de los botones de piezas/tipo
+        document.querySelectorAll('.btn-filter, .btn-neon-filter, .sale-tag').forEach(b => b.classList.remove('active'));
+      }
     }
 
+    // Actualizar clases activas en el menú de categorías
     if (tipo === 'etiqueta') {
       document.querySelectorAll('#dropdown-categorias .btn-tag').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
     } else if (tipo === 'piezas' || tipo === 'tipo') {
-      document.querySelectorAll('.btn-filter, .btn-neon-filter').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.btn-filter, .btn-neon-filter, .sale-tag').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
     }
 
