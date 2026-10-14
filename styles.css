@@ -845,3 +845,84 @@ body {
 #dropdown-categorias::-webkit-scrollbar-thumb:hover {
   background: #ff0000; /* Resalta con el rojo de tu marca */
 }
+
+/* ==========================================
+   ESTILOS DE PAGINACIÓN - 360 DIGITAL
+   ========================================== */
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 40px 0 20px 0;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+/* Botón general de página */
+.btn-page {
+  background-color: #121212;
+  color: #e0e0e0;
+  border: 1px solid #2a2a2a;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  min-height: 42px;
+  user-select: none;
+}
+
+/* Estado Hover (Al pasar el cursor) */
+.btn-page:hover:not(.disabled):not(.active) {
+  background-color: #ff0000;
+  color: #ffffff;
+  border-color: #ff0000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+}
+
+/* Estado Activo (Página actual) */
+.btn-page.active {
+  background: linear-gradient(135deg, #ff0000 0%, #b30000 100%);
+  color: #ffffff;
+  border-color: #ff0000;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+  cursor: default;
+}
+
+/* Estado Deshabilitado (Flechas en extremos) */
+.btn-page.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background-color: #0a0a0a;
+  border-color: #1f1f1f;
+  color: #666666;
+}
+
+/* Animación sutil al hacer clic */
+.btn-page:active:not(.disabled) {
+  transform: translateY(0);
+}
+
+/* Ajustes Responsivos para Celulares */
+@media (max-width: 576px) {
+  .pagination-container {
+    gap: 5px;
+    margin: 25px 0 15px 0;
+  }
+
+  .btn-page {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    min-width: 36px;
+    min-height: 36px;
+  }
+}

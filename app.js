@@ -4,16 +4,17 @@ let filtroTipoActual = "todos"; // Soporta tipo (con_luz / sin_luz)
 let filtroEtiquetaActual = "todas";
 let busquedaTextoActual = "";
 
+// ===== CONFIGURACIÓN DE PAGINACIÓN =====
+let paginaActual = 1;
+const productosPorPagina = 12; // Cantidad de cuadros por página
+let productosFiltrados = [];
+
 // Texto de especificaciones general / materiales
 const ESPECIFICACIONES_GENERALES = "Todos nuestros cuadros son realizados en impresión digital de alta resolución en vinilo acabado brillante sobre MDF 9mm, cuentan con soporte metálico en la parte de atrás ¡Listos para colgar!";
-
-// Texto para cuadros neón led
 const ESPECIFICACIONES_LED = "Todos nuestros cuadros con luz LED son realizados en impresión digital de alta resolución en vinilo acabado brillante sobre MDF 9mm, cuentan con soporte metálico en la parte de atrás y sistema de iluminación LED ¡Listos para colgar! También lo puedes solicitar con dilatadores para mejor apariencia en su instalación.";
-
-// Texto descriptivo para 5 piezas
 const ESPECIFICACIONES_5_PIEZAS_DETALLE = "Compuesto por 5 cuadros de diferentes tamaños. Ideal para crear un efecto visual impactante en cualquier espacio.";
 
-// 1. Catálogo Cuadros CON LUZ LED (1 pieza)
+// Tablas de medidas
 const MEDIDAS_LED = [
   { tamano: "30 x 70 cm", precio: 105000, especificaciones: ESPECIFICACIONES_LED },
   { tamano: "40 x 90 cm", precio: 140000, especificaciones: ESPECIFICACIONES_LED },
@@ -21,7 +22,6 @@ const MEDIDAS_LED = [
   { tamano: "70 x 120 cm", precio: 240000, especificaciones: ESPECIFICACIONES_LED }
 ];
 
-// 2. Catálogo Cuadros COMPLETOS SIN LUZ (1 pieza)
 const MEDIDAS_COMPLETOS = [
   { tamano: "40 x 90 cm", precio: 125000, especificaciones: ESPECIFICACIONES_GENERALES },
   { tamano: "50 x 100 cm", precio: 150000, especificaciones: ESPECIFICACIONES_GENERALES },
@@ -30,36 +30,14 @@ const MEDIDAS_COMPLETOS = [
   { tamano: "140 x 80 cm", precio: 250000, especificaciones: ESPECIFICACIONES_GENERALES }
 ];
 
-// 3. Catálogo TRÍPTICOS / POLÍPTICOS (3 piezas)
 const MEDIDAS_TRIPTICOS = [
-  { 
-    tamano: "30 x 60 cm total", 
-    precio: 75000, 
-    especificaciones: `${ESPECIFICACIONES_GENERALES}\n\n📐 Medida 30 x 60 cm: compuesto por 3 cuadros de 20x30 cm. Ideal para espacios pequeños, perfecto para decorar rincones o pasillos.` 
-  },
-  { 
-    tamano: "40 x 90 cm total", 
-    precio: 120000, 
-    especificaciones: `${ESPECIFICACIONES_GENERALES}\n\n📐 Medida 40 x 90 cm: compuesto por 3 cuadros de 30x40 cm. Ideal para decorar espacios medianos, como salas o habitaciones.` 
-  },
-  { 
-    tamano: "60 x 105 cm total", 
-    precio: 165000, 
-    especificaciones: `${ESPECIFICACIONES_GENERALES}\n\n📐 Medida 60 x 105 cm: compuesto por 3 cuadros de 60x35 cm. Ideal para espacios amplios, como salas o comedores.` 
-  },
-  { 
-    tamano: "70 x 120 cm total", 
-    precio: 200000, 
-    especificaciones: `${ESPECIFICACIONES_GENERALES}\n\n📐 Medida 70 x 120 cm: compuesto por 3 cuadros de 40x70 cm. Ideal para espacios grandes, como salas u oficinas.` 
-  },
-  { 
-    tamano: "80 x 150 cm total", 
-    precio: 240000, 
-    especificaciones: `${ESPECIFICACIONES_GENERALES}\n\n📐 Medida 80 x 150 cm: compuesto por 3 cuadros de 50x80 cm. Ideal para espacios muy amplios, como salas grandes o recepción.` 
-  }
+  { tamano: "30 x 60 cm total", precio: 75000, especificaciones: `${ESPECIFICACIONES_GENERALES}\n\n📐 Medida 30 x 60 cm: compuesto por 3 cuadros de 20x30 cm.` },
+  { tamano: "40 x 90 cm total", precio: 120000, especificaciones: `${ESPECIFICACIONES_GENERALES}\n\n📐 Medida 40 x 90 cm: compuesto por 3 cuadros de 30x40 cm.` },
+  { tamano: "60 x 105 cm total", precio: 165000, especificaciones: `${ESPECIFICACIONES_GENERALES}\n\n📐 Medida 60 x 105 cm: compuesto por 3 cuadros de 60x35 cm.` },
+  { tamano: "70 x 120 cm total", precio: 200000, especificaciones: `${ESPECIFICACIONES_GENERALES}\n\n📐 Medida 70 x 120 cm: compuesto por 3 cuadros de 40x70 cm.` },
+  { tamano: "80 x 150 cm total", precio: 240000, especificaciones: `${ESPECIFICACIONES_GENERALES}\n\n📐 Medida 80 x 150 cm: compuesto por 3 cuadros de 50x80 cm.` }
 ];
 
-// 4. Catálogo CUADROS 5 PIEZAS
 const MEDIDAS_CINCO_PIEZAS = [
   { tamano: "50 x 100 cm total", precio: 145000, especificaciones: `${ESPECIFICACIONES_GENERALES}\n\n📐 ${ESPECIFICACIONES_5_PIEZAS_DETALLE}` },
   { tamano: "70 x 125 cm total", precio: 190000, especificaciones: `${ESPECIFICACIONES_GENERALES}\n\n📐 ${ESPECIFICACIONES_5_PIEZAS_DETALLE}` },
@@ -67,7 +45,6 @@ const MEDIDAS_CINCO_PIEZAS = [
   { tamano: "100 x 200 cm total", precio: 350000, especificaciones: `${ESPECIFICACIONES_GENERALES}\n\n📐 ${ESPECIFICACIONES_5_PIEZAS_DETALLE}` }
 ];
 
-// 5. PERSONALIZADOS UNA PIEZA
 const MEDIDAS_PERSONALIZADOS = [
   { tamano: "20 x 30 cm", precio: 25000, especificaciones: ESPECIFICACIONES_GENERALES },
   { tamano: "30 x 40 cm", precio: 40000, especificaciones: ESPECIFICACIONES_GENERALES },
@@ -83,116 +60,20 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(data => {
       cuadrosData = data.cuadros || data;
       renderizarMenuCategorias();
-      renderizarCatalogo();
+      filtrarYRenderizar();
       injectarDatosEstructurados();
       setupEventListeners();
     })
     .catch(err => console.error("Error al cargar cuadros.json:", err));
 });
 
-// Generar JSON-LD ItemList para SEO
-function injectarDatosEstructurados() {
-  if (!cuadrosData || cuadrosData.length === 0) return;
-
-  const items = cuadrosData.map((cuadro, index) => {
-    const precio = (cuadro.medidas && cuadro.medidas[0] && cuadro.medidas[0].precio) 
-      || parseFloat(cuadro.precio) || 0;
-    const imagenAbs = cuadro.imagen.startsWith("http")
-      ? cuadro.imagen
-      : "https://catalogo-cuadros.netlify.app/" + cuadro.imagen.replace(/^\.?\//, "");
-
-    return {
-      "@type": "ListItem",
-      "position": index + 1,
-      "item": {
-        "@type": "Product",
-        "name": cuadro.titulo,
-        "image": imagenAbs,
-        "description": cuadro.descripcion || `Cuadro decorativo ${cuadro.titulo} en impresión HD sobre MDF 9mm. Disponible en 360 Digital, envíos a todo Colombia.`,
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "COP",
-          "price": precio,
-          "availability": "https://schema.org/InStock"
-        }
-      }
-    };
-  });
-
-  const sl = document.createElement("script");
-  sl.type = "application/ld+json";
-  sl.textContent = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "Catálogo de Cuadros Decorativos 360 Digital",
-    "itemListElement": items
-  });
-  document.head.appendChild(sl);
-}
-
-// Renderizar dinámicamente las categorías en el menú desplegable
-// Renderizar dinámicamente las categorías en el menú desplegable
-function renderizarMenuCategorias() {
-  const menuContainer = document.getElementById("dropdown-categorias");
-  if (!menuContainer) return;
-
-  const todasLasEtiquetas = new Set();
-  
-  cuadrosData.forEach(cuadro => {
-    if (cuadro.etiquetas && Array.isArray(cuadro.etiquetas)) {
-      cuadro.etiquetas.forEach(tag => {
-        // Ignora valores null, undefined o que no sean texto
-        if (tag && typeof tag === 'string') {
-          const tagLimpio = tag.trim().toLowerCase();
-          if (tagLimpio.length > 0) {
-            todasLasEtiquetas.add(tagLimpio);
-          }
-        }
-      });
-    }
-  });
-
-  const etiquetasOrdenadas = Array.from(todasLasEtiquetas).sort();
-
-  // 1. Iniciar siempre con la opción "Todas las categorías"
-  let htmlCategorias = `
-    <li>
-      <a href="#" class="btn-tag ${filtroEtiquetaActual === 'todas' ? 'active' : ''}" data-filter="etiqueta" data-value="todas">
-        Todas las categorías
-      </a>
-    </li>
-  `;
-
-  // 2. Concatenar las categorías extraídas del JSON
-  etiquetasOrdenadas.forEach(tag => {
-    const nombreFormateado = tag.charAt(0).toUpperCase() + tag.slice(1);
-    const estaActivo = filtroEtiquetaActual === tag ? "active" : "";
-
-    htmlCategorias += `
-      <li>
-        <a href="#" class="btn-tag ${estaActivo}" data-filter="etiqueta" data-value="${tag}">
-          ${nombreFormateado}
-        </a>
-      </li>
-    `;
-  });
-
-  // 3. Insertar el HTML completo en el contenedor
-  menuContainer.innerHTML = htmlCategorias;
-}
-// Renderizar tarjetas del catálogo
-function renderizarCatalogo() {
-  const container = document.getElementById("catalog-grid");
-  if (!container) return;
-  container.innerHTML = "";
-
-  const filtrados = cuadrosData.filter(item => {
+// Filtrar productos y reiniciar a la página 1
+function filtrarYRenderizar() {
+  productosFiltrados = cuadrosData.filter(item => {
     const esConLuzItem = item.tipo === "con_luz" || item.tieneLuz === true;
 
-    // 1. Evaluación del filtro de Piezas
     const coincidePiezas = filtroPiezasActual === "todas" || (item.piezas && item.piezas.toString() === filtroPiezasActual);
     
-    // 2. Evaluación del filtro por TIPO (Neón / Sin Luz)
     let coincideTipo = true;
     if (filtroTipoActual === "con_luz" || filtroTipoActual === "neon") {
       coincideTipo = esConLuzItem;
@@ -200,36 +81,45 @@ function renderizarCatalogo() {
       coincideTipo = !esConLuzItem;
     }
 
-    // Limpieza segura de etiquetas (descarta nulos e higieniza texto)
     const etiquetasLimpias = Array.isArray(item.etiquetas)
-      ? item.etiquetas
-          .filter(Boolean)
-          .map(t => t.toString().trim().toLowerCase())
+      ? item.etiquetas.filter(Boolean).map(t => t.toString().trim().toLowerCase())
       : [];
 
-    // 3. Evaluación del filtro por Etiquetas
     const coincideEtiqueta = filtroEtiquetaActual === "todas" || etiquetasLimpias.includes(filtroEtiquetaActual);
     
-    // 4. Búsqueda por texto
     const texto = busquedaTextoActual.toLowerCase();
     const tituloValido = (item.titulo || "").toLowerCase();
-    const coincideTexto = tituloValido.includes(texto) || 
-                          etiquetasLimpias.some(tag => tag.includes(texto));
+    const coincideTexto = tituloValido.includes(texto) || etiquetasLimpias.some(tag => tag.includes(texto));
 
     return coincidePiezas && coincideTipo && coincideEtiqueta && coincideTexto;
   });
 
-  if (filtrados.length === 0) {
+  paginaActual = 1; // Reinicia a la primera página tras cualquier filtro o búsqueda
+  renderizarCatalogoPaginado();
+}
+
+// Renderizar tarjetas por página
+function renderizarCatalogoPaginado() {
+  const container = document.getElementById("catalog-grid");
+  if (!container) return;
+  container.innerHTML = "";
+
+  if (productosFiltrados.length === 0) {
     container.innerHTML = `<p style="color:var(--text-muted); grid-column: 1/-1; text-align:center; padding: 3rem 0;">No se encontraron cuadros con estos filtros o búsqueda.</p>`;
+    renderizarPaginacion(0);
     return;
   }
 
-  filtrados.forEach(cuadro => {
+  // Paginado usando .slice()
+  const inicio = (paginaActual - 1) * productosPorPagina;
+  const fin = inicio + productosPorPagina;
+  const productosPagina = productosFiltrados.slice(inicio, fin);
+
+  productosPagina.forEach(cuadro => {
     const esConLuz = cuadro.tipo === "con_luz" || cuadro.tieneLuz === true;
     const etiquetasRender = Array.isArray(cuadro.etiquetas) ? cuadro.etiquetas.filter(Boolean) : [];
     const esPersonalizado = cuadro.tipo === "personalizado" || etiquetasRender.some(e => e.toString().toLowerCase().includes("personalizado"));
 
-    // Asignar grupo de medidas
     let medidasDelCuadro = [];
     if (cuadro.medidas && cuadro.medidas.length > 0) {
       medidasDelCuadro = cuadro.medidas;
@@ -253,16 +143,13 @@ function renderizarCatalogo() {
     ).join("");
 
     const tagsHTML = etiquetasRender.map(t => `<span class="tag-mini">${t}</span>`).join("");
-
     let badgeTipo = `${cuadro.piezas || 1} ${cuadro.piezas === 1 ? 'Pieza' : 'Piezas'}`;
     if (esConLuz) badgeTipo += ' • Iluminación LED';
-
-    const altTexto = `Cuadro decorativo ${cuadro.titulo}${esConLuz ? ' con luz LED neón' : ''} - 360 Digital`;
 
     const cardHTML = `
       <div class="card" id="card-${cuadro.id}" itemscope itemtype="https://schema.org/Product">
         <div class="card-img" onclick="abrirModalImagen('${cuadro.imagen}')">
-          <img src="${cuadro.imagen}" alt="${altTexto}" loading="lazy" width="400" height="400" itemprop="image">
+          <img src="${cuadro.imagen}" alt="Cuadro ${cuadro.titulo}" loading="lazy" width="400" height="400" itemprop="image">
           <span class="badge-piezas">${badgeTipo}</span>
         </div>
 
@@ -307,9 +194,104 @@ function renderizarCatalogo() {
     `;
     container.innerHTML += cardHTML;
   });
+
+  renderizarPaginacion(productosFiltrados.length);
 }
 
-// Cambiar precio y especificaciones según medida elegida
+// Generador de botones de páginas
+function renderizarPaginacion(totalProductos) {
+  let contenedorPaginacion = document.getElementById('pagination-container');
+
+  if (!contenedorPaginacion) {
+    contenedorPaginacion = document.createElement('div');
+    contenedorPaginacion.id = 'pagination-container';
+    contenedorPaginacion.className = 'pagination-container';
+    document.querySelector('.catalog-container').appendChild(contenedorPaginacion);
+  }
+
+  contenedorPaginacion.innerHTML = '';
+
+  const totalPaginas = Math.ceil(totalProductos / productosPorPagina);
+  if (totalPaginas <= 1) return;
+
+  // Botón Anterior
+  const btnAnt = document.createElement('button');
+  btnAnt.className = `btn-page ${paginaActual === 1 ? 'disabled' : ''}`;
+  btnAnt.innerHTML = '<i class="fas fa-chevron-left"></i>';
+  btnAnt.onclick = () => cambiarPagina(paginaActual - 1);
+  contenedorPaginacion.appendChild(btnAnt);
+
+  // Botones Numéricos
+  for (let i = 1; i <= totalPaginas; i++) {
+    const btnNum = document.createElement('button');
+    btnNum.className = `btn-page ${i === paginaActual ? 'active' : ''}`;
+    btnNum.textContent = i;
+    btnNum.onclick = () => cambiarPagina(i);
+    contenedorPaginacion.appendChild(btnNum);
+  }
+
+  // Botón Siguiente
+  const btnSig = document.createElement('button');
+  btnSig.className = `btn-page ${paginaActual === totalPaginas ? 'disabled' : ''}`;
+  btnSig.innerHTML = '<i class="fas fa-chevron-right"></i>';
+  btnSig.onclick = () => cambiarPagina(paginaActual + 1);
+  contenedorPaginacion.appendChild(btnSig);
+}
+
+function cambiarPagina(nuevaPagina) {
+  const totalPaginas = Math.ceil(productosFiltrados.length / productosPorPagina);
+  if (nuevaPagina < 1 || nuevaPagina > totalPaginas) return;
+
+  paginaActual = nuevaPagina;
+  renderizarCatalogoPaginado();
+
+  const catalogo = document.getElementById('catalog-grid');
+  if (catalogo) {
+    catalogo.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+// Resto de funciones (Menú, Selectores, Modales)
+function renderizarMenuCategorias() {
+  const menuContainer = document.getElementById("dropdown-categorias");
+  if (!menuContainer) return;
+
+  const todasLasEtiquetas = new Set();
+  cuadrosData.forEach(cuadro => {
+    if (cuadro.etiquetas && Array.isArray(cuadro.etiquetas)) {
+      cuadro.etiquetas.forEach(tag => {
+        if (tag && typeof tag === 'string') {
+          const tagLimpio = tag.trim().toLowerCase();
+          if (tagLimpio.length > 0) todasLasEtiquetas.add(tagLimpio);
+        }
+      });
+    }
+  });
+
+  const etiquetasOrdenadas = Array.from(todasLasEtiquetas).sort();
+  let htmlCategorias = `
+    <li>
+      <a href="#" class="btn-tag ${filtroEtiquetaActual === 'todas' ? 'active' : ''}" data-filter="etiqueta" data-value="todas">
+        Todas las categorías
+      </a>
+    </li>
+  `;
+
+  etiquetasOrdenadas.forEach(tag => {
+    const nombreFormateado = tag.charAt(0).toUpperCase() + tag.slice(1);
+    const estaActivo = filtroEtiquetaActual === tag ? "active" : "";
+    htmlCategorias += `
+      <li>
+        <a href="#" class="btn-tag ${estaActivo}" data-filter="etiqueta" data-value="${tag}">
+          ${nombreFormateado}
+        </a>
+      </li>
+    `;
+  });
+
+  menuContainer.innerHTML = htmlCategorias;
+}
+
 function cambiarMedida(cuadroId, indexMedida) {
   const cuadro = cuadrosData.find(c => c.id === cuadroId);
   if (!cuadro) return;
@@ -324,7 +306,6 @@ function cambiarMedida(cuadroId, indexMedida) {
   if (elemSpecs) elemSpecs.innerText = seleccion.especificaciones;
 }
 
-// Escuchadores de eventos para filtros y búsqueda
 function setupEventListeners() {
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('[data-filter]');
@@ -344,7 +325,6 @@ function setupEventListeners() {
       filtroEtiquetaActual = valor;
     }
 
-    // Actualizar clases activas en botones
     if (tipo === 'etiqueta') {
       document.querySelectorAll('#dropdown-categorias .btn-tag').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
@@ -353,19 +333,18 @@ function setupEventListeners() {
       btn.classList.add('active');
     }
 
-    renderizarCatalogo();
+    filtrarYRenderizar();
   });
 
   const searchInput = document.getElementById("searchInput");
   if (searchInput) {
     searchInput.addEventListener("input", (e) => {
       busquedaTextoActual = e.target.value.trim();
-      renderizarCatalogo();
+      filtrarYRenderizar();
     });
   }
 }
 
-// Pedido por WhatsApp
 function pedirPorWhatsapp(titulo, cuadroId) {
   const cuadro = cuadrosData.find(c => c.id === cuadroId);
   const selectMedida = document.getElementById(`size-${cuadroId}`);
@@ -380,7 +359,6 @@ function pedirPorWhatsapp(titulo, cuadroId) {
   window.open(`https://wa.me/573187752351?text=${encodeURIComponent(mensaje)}`, '_blank');
 }
 
-// Modal / Lightbox para ver la imagen en tamaño grande
 function abrirModalImagen(rutaImagen) {
   const modal = document.getElementById("image-modal");
   const modalImg = document.getElementById("modal-img-target");
@@ -398,4 +376,42 @@ function cerrarModalImagen() {
     modal.style.display = "none";
     document.body.style.overflow = "auto";
   }
+}
+
+function injectarDatosEstructurados() {
+  if (!cuadrosData || cuadrosData.length === 0) return;
+
+  const items = cuadrosData.map((cuadro, index) => {
+    const precio = (cuadro.medidas && cuadro.medidas[0] && cuadro.medidas[0].precio) || parseFloat(cuadro.precio) || 0;
+    const imagenAbs = cuadro.imagen.startsWith("http")
+      ? cuadro.imagen
+      : "https://catalogo-cuadros.netlify.app/" + cuadro.imagen.replace(/^\.?\//, "");
+
+    return {
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Product",
+        "name": cuadro.titulo,
+        "image": imagenAbs,
+        "description": cuadro.descripcion || `Cuadro decorativo ${cuadro.titulo} en impresión HD sobre MDF 9mm.`,
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "COP",
+          "price": precio,
+          "availability": "https://schema.org/InStock"
+        }
+      }
+    };
+  });
+
+  const sl = document.createElement("script");
+  sl.type = "application/ld+json";
+  sl.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Catálogo de Cuadros Decorativos 360 Digital",
+    "itemListElement": items
+  });
+  document.head.appendChild(sl);
 }
