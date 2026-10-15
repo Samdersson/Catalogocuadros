@@ -1,6 +1,17 @@
 {
   "cuadros": [
     {
+      "tipo": "con_luz",
+      "piezas": 1,
+      "id": "0075",
+      "titulo": "Luna llena led ",
+      "descripcion": "Cuadro con luz led",
+      "imagen": "imagenes/img_8790.gif",
+      "etiquetas": [
+        "Paisajes"
+      ]
+    },
+    {
       "tipo": "sin_luz",
       "piezas": 1,
       "imagen": "imagenes/img_1848.jpeg",
