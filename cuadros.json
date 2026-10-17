@@ -1,6 +1,17 @@
 {
   "cuadros": [
     {
+      "tipo": "sin_luz",
+      "piezas": 3,
+      "id": "00865",
+      "titulo": "Conejita infantil",
+      "descripcion": "Cuadros para cuetos de bebé ",
+      "imagen": "imagenes/img_8835.jpeg",
+      "etiquetas": [
+        "Infantil"
+      ]
+    },
+    {
       "tipo": "con_luz",
       "piezas": 1,
       "id": "0075",
