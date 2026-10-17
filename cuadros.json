@@ -1,6 +1,17 @@
 {
   "cuadros": [
     {
+      "tipo": "con_luz",
+      "piezas": 1,
+      "id": "0792",
+      "titulo": "Dólar neón calido",
+      "descripcion": "Cuadros decorativos de dolar",
+      "imagen": "imagenes/img_8802.jpeg",
+      "etiquetas": [
+        "Dinero"
+      ]
+    },
+    {
       "tipo": "sin_luz",
       "piezas": 3,
       "id": "00865",
