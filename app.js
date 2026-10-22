@@ -369,6 +369,17 @@ function pedirPorWhatsapp(titulo, cuadroId) {
   const esConLuz = cuadro && (cuadro.tipo === "con_luz" || cuadro.tieneLuz === true);
   const tipoTexto = esConLuz ? "Cuadro con Luz LED Neon" : "Cuadro Completo Estándar";
 
+  // ===== TRACKING EN GOOGLE ANALYTICS =====
+  if (typeof gtag === 'function') {
+    const precioNumero = parseInt(precioText.replace(/[^0-9]/g, '')) || 0;
+    gtag('event', 'click_whatsapp', {
+      'event_category': 'Ventas',
+      'event_label': titulo,
+      'value': precioNumero,
+      'currency': 'COP'
+    });
+  }
+
   const mensaje = `¡Hola *360 Digital*! 🖼️\nQuiero pedir el producto: *${titulo}*\n\n📌 *Tipo:* ${tipoTexto}\n📐 *Medida:* ${medidaText}\n💰 *Precio:* ${precioText}\n\n¿Me indican los pasos para realizar la compra?`;
 
   window.open(`https://wa.me/573173562745?text=${encodeURIComponent(mensaje)}`, '_blank');
