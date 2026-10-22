@@ -371,7 +371,7 @@ function pedirPorWhatsapp(titulo, cuadroId) {
 
   const mensaje = `¡Hola *360 Digital*! 🖼️\nQuiero pedir el producto: *${titulo}*\n\n📌 *Tipo:* ${tipoTexto}\n📐 *Medida:* ${medidaText}\n💰 *Precio:* ${precioText}\n\n¿Me indican los pasos para realizar la compra?`;
 
-  window.open(`https://wa.me/573187752351?text=${encodeURIComponent(mensaje)}`, '_blank');
+  window.open(`https://wa.me/573173562745?text=${encodeURIComponent(mensaje)}`, '_blank');
 }
 
 function abrirModalImagen(rutaImagen) {
