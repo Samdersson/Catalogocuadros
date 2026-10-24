@@ -3,6 +3,17 @@
     {
       "tipo": "sin_luz",
       "piezas": 3,
+      "titulo": "Guerreras K-Pop",
+      "id": "24563",
+      "descripcion": "cuadros K-Pop",
+      "imagen": "imagenes/gemini_generated_image_8e58kw8e58kw8e58.jfif",
+      "etiquetas": [
+        "infantil"
+      ]
+    },
+    {
+      "tipo": "sin_luz",
+      "piezas": 3,
       "titulo": "K-Pop",
       "id": "45875",
       "descripcion": "cuadros de K-Pop",
