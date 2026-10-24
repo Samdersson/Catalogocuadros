@@ -1,6 +1,17 @@
 {
   "cuadros": [
     {
+      "tipo": "sin_luz",
+      "piezas": 3,
+      "titulo": "K-Pop",
+      "id": "45875",
+      "descripcion": "cuadros de K-Pop",
+      "imagen": "imagenes/gemini_generated_image_ctwuujctwuujctwu.jfif",
+      "etiquetas": [
+        "infantil"
+      ]
+    },
+    {
       "tipo": "con_luz",
       "piezas": 1,
       "id": "0792",
